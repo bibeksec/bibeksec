@@ -4,14 +4,14 @@ A working website for an ethical hacker / penetration tester with a real backend
 public site + a contact form that saves engagement requests to a database, and
 a password-protected admin dashboard to review and manage them.
 
-## Stack
+Stack
 
 - **Backend:** Node.js + Express
 - **Database:** SQLite (via `better-sqlite3`) — a single file, no external DB server needed
 - **Security:** Helmet (HTTP headers), rate limiting on the public form, token-based admin auth, input validation, HTML-escaping in the admin UI
 - **Frontend:** Plain HTML/CSS/JS (no build step) in `/public`
 
-## Project structure
+ Project structure
 
 ```
 bibek-site/
