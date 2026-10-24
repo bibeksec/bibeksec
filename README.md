@@ -1,8 +1,9 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="BibekSec: Penetration Tester · Python · Detection Engineering" width="100%"/>
+<img src="assets/banner.svg" alt="BibekSec animated banner">
 
 <br/>
+
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Bibek%20Tamata-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/bibek-tamata-2b1808446/)
 [![Portfolio](https://img.shields.io/badge/Portfolio-bibeksec.github.io-00ff9c?style=for-the-badge&logo=githubpages&logoColor=black)](https://bibeksec.github.io/bibeksec.github.io./)
