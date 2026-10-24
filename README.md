@@ -16,7 +16,7 @@
 
 ---
 
-## `01 // IDENTITY`
+## ` IDENTITY`
 
 I'm **Bibek Tamata**, a BIT student from Nepal building practical skills in cybersecurity, Python, Linux, networking, and software development.
 
@@ -34,7 +34,7 @@ My long-term goal is to become a skilled cybersecurity professional with strong 
   Philosophy  : Fundamentals first. Evidence always.
 ```
 
-## `02 // FEATURED PROJECTS`
+## `FEATURED PROJECTS`
 
 ### Sentinel Detect
 
@@ -85,7 +85,7 @@ My personal hub for technical projects, cybersecurity experiments, learning prog
 
 ---
 
-## `03 // TECHNICAL ARSENAL`
+## ` TECHNICAL ARSENAL`
 
 **Programming**
 
@@ -115,7 +115,7 @@ My personal hub for technical projects, cybersecurity experiments, learning prog
 
 *My toolkit reflects areas of hands-on practice and ongoing learning, not a claim of mastery in every technology.*
 
-## `04 // CURRENT OPERATIONS`
+## ` CURRENT OPERATIONS`
 
 - Strengthening Python fundamentals and problem-solving.
 - Developing Python utilities for security analysis.
@@ -125,7 +125,7 @@ My personal hub for technical projects, cybersecurity experiments, learning prog
 - Building foundations in SOC analysis and incident investigation.
 - Improving project documentation, testing, and secure coding.
 
-## `05 // LEARNING IN PUBLIC`
+## ` LEARNING IN PUBLIC`
 
 I believe a strong security engineer should understand **why** a vulnerability exists, how it can be verified safely, how it can be detected, and how it can be prevented.
 
@@ -153,7 +153,7 @@ class BibekSec:
         return "Learn something. Build something. Prove it."
 ```
 
-## `06 // SECURITY LABS & COMMUNITY`
+## `SECURITY LABS & COMMUNITY`
 
 - **TryHackMe:** [bibektamata012](https://tryhackme.com/p/bibektamata012)
 - **Hack The Box:** [Profile](https://app.hackthebox.com/users/3290646)
@@ -162,7 +162,7 @@ class BibekSec:
 - **YouTube:** [@BibekSec](https://youtube.com/@BibekSec)
 - **Portfolio:** [bibeksec.github.io](https://bibeksec.github.io/bibeksec.github.io./)
 
-## `07 // COLLABORATION`
+## ` COLLABORATION`
 
 I'm interested in meaningful open-source contributions, defensive security tools, Python automation, responsible OSINT, and practical cybersecurity education.
 
