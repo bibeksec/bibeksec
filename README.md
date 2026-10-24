@@ -9,7 +9,7 @@
 *From understanding systems to investigating threats and building defenses.*
 
 [![GitHub](https://img.shields.io/badge/GitHub-bibeksec-111111?style=for-the-badge&logo=github)](https://github.com/bibeksec)
-[![Portfolio](https://img.shields.io/badge/Portfolio-BibekSec-00BCD4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://bibeksec.github.io/bibeksec.github.io./)
+[![Portfolio](https://img.shields.io/badge/Portfolio-BibekSec-00BCD4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://bibeksec.github.io/bibeksec/)
 [![YouTube](https://img.shields.io/badge/YouTube-BibekSec-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@BibekSec)
 
 </div>
