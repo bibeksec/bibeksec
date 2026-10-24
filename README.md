@@ -1,7 +1,6 @@
-<img src="assets/banner.svg" alt="BibekSec animated banner">
-<div align="center">
 
-<img src="assets/banner.svg" alt="BibekSec animated banner">
+<div align="center">
+<img width="1983" height="793" alt="edfa52b2-0a7f-4fe6-b0e4-3ad4c29c36a6" src="https://github.com/user-attachments/assets/349c6716-9804-4c98-b98d-2f2684545740" />
 
 <br/>
 
@@ -172,9 +171,8 @@ flowchart LR
 ### 📊 Lab Progress
 
 <div align="center">
-
-<a href="https://tryhackme.com/p/bibektamata012"><img src="https://tryhackme-badges.s3.amazonaws.com/bibektamata012.png" alt="TryHackMe badge" height="120"/></a>
-
+<img width="1369" height="707" alt="Screenshot from 2026-10-24 17-49-59" src="https://github.com/user-attachments/assets/40d069fc-1f1a-400a-ae7d-61b186393af2" />
+    
 </div>
 
 <!-- FILL IN with REAL numbers, then delete this comment:
