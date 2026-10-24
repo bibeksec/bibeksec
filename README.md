@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="BibekSec — Penetration Tester · Python · Detection Engineering" width="100%"/>
+<img src="assets/banner.svg" alt="BibekSec: Penetration Tester · Python · Detection Engineering" width="100%"/>
 
 <br/>
 
@@ -39,8 +39,22 @@ I'm **Bibek Tamata**, a penetration tester and BIT student from Nepal.
 Most people learn offense *or* defense. I work on both sides of the same problem: I practice attacks in authorized labs, then build tools that **detect those exact attacks.** An attack I can't detect is half-understood, and a detection I can't test is just a guess.
 
 <div align="center">
-<img src="assets/pipeline.svg" alt="Attack, Understand, Detect, Defend" width="100%"/>
+<img src="assets/workflow.svg" alt="Attack, Understand, Detect, Defend workflow" width="100%"/>
 </div>
+
+---
+
+## ✅ Proof of Work
+
+Claims are cheap, so here is the evidence:
+
+| I say… | Evidence |
+|:--|:--|
+| I write detections | **10 rules** mapped to MITRE ATT&CK in [Sentinel Detect](https://github.com/bibeksec/sentinel-detect) |
+| I test my work | Sentinel ships with built-in self-tests: `python3 sentinel.py selftest` |
+| I ship real things | [Nepal ScamWatch](https://nepal-scamwatch.bibektamata012.workers.dev/) is **live** on Cloudflare Workers + D1 + R2 |
+| I build responsibly | [GOD'S-EYE](https://github.com/bibeksec/god-eye) labels simulated data and states it does no surveillance of people |
+| I document | Every featured project ships a README with setup and run steps |
 
 ---
 
@@ -51,8 +65,6 @@ Most people learn offense *or* defense. I work on both sides of the same problem
 <div align="center">
 <img src="assets/alerts.svg" alt="Illustrative Sentinel Detect alert feed on synthetic events" width="100%"/>
 </div>
-
-<br/>
 
 | Capability | Detail |
 |:--|:--|
@@ -69,8 +81,12 @@ python3 sentinel.py --demo        # watch it catch synthetic attacks
 python3 sentinel.py selftest      # verify the detections
 ```
 
+<div align="center">
+<img src="assets/attck.svg" alt="MITRE ATT&CK coverage of Sentinel Detect rules" width="100%"/>
+</div>
+
 <details>
-<summary><b>🗺️ ATT&CK coverage map (click to expand)</b></summary>
+<summary><b>📋 ATT&CK coverage table (click to expand)</b></summary>
 
 <br/>
 
