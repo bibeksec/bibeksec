@@ -1,3 +1,4 @@
+<img src="assets/banner.svg" alt="BibekSec animated banner">
 <div align="center">
 
 <img src="assets/banner.svg" alt="BibekSec animated banner">
