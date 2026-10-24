@@ -1,99 +1,183 @@
-# Bibek — Offensive Security Portfolio (Full Stack)
+ <div align="center">
 
-A working website for an ethical hacker / penetration tester with a real backend:
-public site + a contact form that saves engagement requests to a database, and
-a password-protected admin dashboard to review and manage them.
+# BIBEKSEC
 
-Stack
+### CYBERSECURITY ENGINEERING · PYTHON · OPEN SOURCE
 
-- **Backend:** Node.js + Express
-- **Database:** SQLite (via `better-sqlite3`) — a single file, no external DB server needed
-- **Security:** Helmet (HTTP headers), rate limiting on the public form, token-based admin auth, input validation, HTML-escaping in the admin UI
-- **Frontend:** Plain HTML/CSS/JS (no build step) in `/public`
+**Learn. Build. Secure.**
 
- Project structure
+*From understanding systems to investigating threats and building defenses.*
 
-```
-bibek-site/
-├── server.js          # Express app, all API routes
-├── db.js              # SQLite connection + schema
-├── public/
-│   ├── index.html      # Public site (with working contact form)
-│   └── admin.html       # Admin dashboard (token-protected)
-├── data/
-│   └── bibek.db        # SQLite database (created automatically)
-├── .env.example        # Copy to .env and fill in
-└── package.json
-```
+[![GitHub](https://img.shields.io/badge/GitHub-bibeksec-111111?style=for-the-badge&logo=github)](https://github.com/bibeksec)
+[![Portfolio](https://img.shields.io/badge/Portfolio-BibekSec-00BCD4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://bibeksec.github.io/bibeksec.github.io./)
+[![YouTube](https://img.shields.io/badge/YouTube-BibekSec-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@BibekSec)
 
-## 1. Install
+</div>
 
-```bash
-cd bibek-site
-npm install
-```
+---
 
-## 2. Configure
+## `01 // IDENTITY`
 
-```bash
-cp .env.example .env
+I'm **Bibek Tamata**, a BIT student from Nepal building practical skills in cybersecurity, Python, Linux, networking, and software development.
+
+I believe in understanding the fundamentals, writing my own code, testing what I build, and documenting what I learn.
+
+My long-term goal is to become a skilled cybersecurity professional with strong foundations in both offensive security and defensive operations.
+
+```text
+  BIBEKSEC :: SECURITY RESEARCH & DEVELOPMENT
+
+  [ LEARN ] ---> [ BUILD ] ---> [ TEST ] ---> [ SECURE ]
+
+  Focus       : Cybersecurity | Python | Linux
+  Environment : Linux Mint | Terminal | Security Labs
+  Philosophy  : Fundamentals first. Evidence always.
 ```
 
-Generate a real admin token and put it in `.env`:
+## `02 // FEATURED PROJECTS`
 
-```bash
-node -e "console.log(require('crypto').randomBytes(24).toString('hex'))"
+### Sentinel Detect
+
+**Python · Defensive Security · Log Analysis**
+
+A hands-on security monitoring project that demonstrates authentication-log analysis and suspicious login detection.
+
+- Detect suspicious authentication patterns.
+- Generate alerts with severity and investigation context.
+- Explore MITRE ATT&CK mapping.
+- Practice defensive detection logic with synthetic events.
+
+[**Explore Repository →**](https://github.com/bibeksec/sentinel-detect)
+
+### Nepal ScamWatch
+
+**Web Security · Cyber Awareness · Application Development**
+
+A project focused on scam awareness and reporting, with an emphasis on making cybersecurity information more accessible in Nepal.
+
+- Explore searchable scam reports and case tracking.
+- Learn secure handling of submitted information.
+- Investigate moderation, validation, and abuse prevention.
+- Develop practical web application security skills.
+
+[**Explore Repository →**](https://github.com/bibeksec/nepal-scamwatch-a)
+
+### GOD-EYE Nepal
+
+**OSINT · Geospatial Visualization · Data Integration**
+
+An open-source intelligence dashboard concept exploring public data and geographic visualization.
+
+- Work with external data sources.
+- Explore geographic and situational visualization.
+- Practice responsible intelligence research.
+- Consider source reliability, privacy, and data quality.
+
+[**Explore Repository →**](https://github.com/bibeksec/god-eye)
+
+### BibekSec Portfolio
+
+**Frontend Development · Personal Brand · Security Projects**
+
+My personal hub for technical projects, cybersecurity experiments, learning progress, and future research.
+
+[**Visit Portfolio →**](https://bibeksec.github.io/bibeksec.github.io./)
+
+---
+
+## `03 // TECHNICAL ARSENAL`
+
+**Programming**
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=flat-square&logo=cplusplus&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+
+**Systems & Networking**
+
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
+![Bash](https://img.shields.io/badge/Bash-121011?style=flat-square&logo=gnubash&logoColor=white)
+![Networking](https://img.shields.io/badge/Computer_Networking-2563EB?style=flat-square)
+
+**Security & Investigation**
+
+![Nmap](https://img.shields.io/badge/Nmap-4682B4?style=flat-square)
+![Burp Suite](https://img.shields.io/badge/Burp_Suite-FF6633?style=flat-square&logo=burpsuite&logoColor=white)
+![Wireshark](https://img.shields.io/badge/Wireshark-1679A7?style=flat-square&logo=wireshark&logoColor=white)
+![OWASP](https://img.shields.io/badge/OWASP-000000?style=flat-square&logo=owasp&logoColor=white)
+
+**Development & Collaboration**
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)
+
+*My toolkit reflects areas of hands-on practice and ongoing learning, not a claim of mastery in every technology.*
+
+## `04 // CURRENT OPERATIONS`
+
+- Strengthening Python fundamentals and problem-solving.
+- Developing Python utilities for security analysis.
+- Practicing Linux administration and command-line workflows.
+- Learning networking, traffic analysis, and system security.
+- Studying web vulnerabilities in authorized practice labs.
+- Building foundations in SOC analysis and incident investigation.
+- Improving project documentation, testing, and secure coding.
+
+## `05 // LEARNING IN PUBLIC`
+
+I believe a strong security engineer should understand **why** a vulnerability exists, how it can be verified safely, how it can be detected, and how it can be prevented.
+
+My approach:
+
+1. Understand the underlying concept.
+2. Reproduce it in a controlled lab.
+3. Write or modify code independently.
+4. Test edge cases and document results.
+5. Explain the risk and implement a defense.
+
+```python
+class BibekSec:
+    mission = "Learn. Build. Secure."
+
+    principles = [
+        "Understand before automating",
+        "Practice before claiming expertise",
+        "Test before trusting",
+        "Document before publishing",
+        "Respect authorization and privacy",
+    ]
+
+    def next_step(self):
+        return "Learn something. Build something. Prove it."
 ```
 
-Paste the output as `ADMIN_TOKEN` in `.env`. **Never share this token or commit `.env`.**
+## `06 // SECURITY LABS & COMMUNITY`
 
-## 3. Run
+- **TryHackMe:** [bibektamata012](https://tryhackme.com/p/bibektamata012)
+- **Hack The Box:** [Profile](https://app.hackthebox.com/users/3290646)
+- **PortSwigger Web Security Academy:** [Practice web security](https://portswigger.net/web-security)
+- **LeetCode:** [Problem-solving profile](https://leetcode.com/u/NwLnFoZCvI/)
+- **YouTube:** [@BibekSec](https://youtube.com/@BibekSec)
+- **Portfolio:** [bibeksec.github.io](https://bibeksec.github.io/bibeksec.github.io./)
 
-```bash
-npm start
-```
+## `07 // COLLABORATION`
 
-Visit:
-- **Public site:** http://localhost:3000
-- **Admin dashboard:** http://localhost:3000/admin.html (enter your `ADMIN_TOKEN` to log in)
+I'm interested in meaningful open-source contributions, defensive security tools, Python automation, responsible OSINT, and practical cybersecurity education.
 
-For auto-restart on file changes during development:
-```bash
-npm run dev
-```
+If you're building something useful in security or want to exchange ideas and knowledge, let's connect through GitHub.
 
-## How the contact form works
+---
 
-1. A visitor fills out the form on the public site and submits.
-2. The browser sends a `POST /api/contact` request with their details.
-3. The server validates the input (organization, email format, engagement type, scope length), rate-limits by IP (5 submissions per 15 minutes), and saves it to the SQLite database.
-4. You review new requests in `/admin.html`, update their status (new → reviewing → scoping → closed/declined), or delete spam.
+<div align="center">
 
-## API reference
+### BIBEKSEC
 
-| Method | Route | Auth | Description |
-|---|---|---|---|
-| POST | `/api/contact` | none (rate-limited) | Submit an engagement request |
-| GET | `/api/admin/submissions` | Bearer token | List submissions, optional `?status=` filter |
-| PATCH | `/api/admin/submissions/:id` | Bearer token | Update a submission's status |
-| DELETE | `/api/admin/submissions/:id` | Bearer token | Delete a submission |
-| GET | `/api/health` | none | Health check |
+**CURIOUS BY NATURE. DISCIPLINED BY PRACTICE.**
 
-Admin routes require an `Authorization: Bearer <ADMIN_TOKEN>` header — the admin dashboard handles this for you once you log in.
+`LEARN · BUILD · SECURE`
 
-## Deploying it for real
+*Building skills. Writing code. Earning trust.*
 
-This app has no external dependencies beyond Node, so it deploys easily to:
-
-- **Render / Railway / Fly.io:** connect your repo, set the `ADMIN_TOKEN` env var in their dashboard, done. (On platforms with ephemeral filesystems, attach a persistent disk/volume for the `data/` folder so the database survives restarts.)
-- **A VPS (DigitalOcean, Linode, etc.):** `git clone`, `npm install`, run with `pm2 start server.js` or as a `systemd` service, put Nginx in front for TLS.
-- **Docker:** straightforward to containerize — ask if you'd like a `Dockerfile` added.
-
-Put the site behind HTTPS in production (Render/Railway do this automatically; on your own VPS use Let's Encrypt via Certbot).
-
-## Security notes
-
-- The `ADMIN_TOKEN` is your only line of defense for the admin dashboard — treat it like a password. Rotate it if you think it's leaked.
-- The contact form only ever writes to the database; it can't execute anything, so it isn't a vector for someone to run commands on your server.
-- Submitter IP addresses are stored as a one-way hash (not the raw IP), enough to spot abuse patterns without keeping raw personal data.
-- Consider adding real email notifications (e.g. via Resend, Postmark, or SMTP) when a new submission comes in — happy to wire that up if you want it.
+</div>
