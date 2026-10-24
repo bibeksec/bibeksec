@@ -1,212 +1,156 @@
+<!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
 <div align="center">
 
-<img src="assets/banner.svg" alt="BibekSec: Penetration Tester · Python · Detection Engineering" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00ff9c,50:0a7d5a,100:0d1117&height=220&section=header&text=BIBEKSEC&fontSize=72&fontColor=ffffff&fontAlignY=38&desc=Learn.%20Build.%20Secure.&descSize=22&descAlignY=60&animation=fadeIn" alt="BibekSec banner" width="100%"/>
+
+<a href="https://github.com/bibeksec/bibeksec">
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&pause=1200&color=00FF9C&center=true&vCenter=true&width=700&lines=Cybersecurity+Engineering+%C2%B7+Python+%C2%B7+Open+Source;Fundamentals+first.+Evidence+always.;From+understanding+systems+to+building+defenses;BIT+student+%7C+Nepal+%F0%9F%87%B3%F0%9F%87%B5" alt="Typing animation" />
+</a>
 
 <br/>
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Bibek%20Tamata-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/bibek-tamata-2b1808446/)
-[![Portfolio](https://img.shields.io/badge/Portfolio-bibeksec.github.io-00ff9c?style=for-the-badge&logo=githubpages&logoColor=black)](https://bibeksec.github.io/bibeksec.github.io./)
+[![Portfolio](https://img.shields.io/badge/Portfolio-bibeksec.github.io-00ff9c?style=for-the-badge&logo=githubpages&logoColor=black)](https://bibeksec.github.io)
 [![YouTube](https://img.shields.io/badge/YouTube-@BibekSec-ff0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@BibekSec)
-
 [![TryHackMe](https://img.shields.io/badge/TryHackMe-bibektamata012-212c42?style=for-the-badge&logo=tryhackme&logoColor=white)](https://tryhackme.com/p/bibektamata012)
-[![Hack The Box](https://img.shields.io/badge/Hack%20The%20Box-Profile-9fef00?style=for-the-badge&logo=hackthebox&logoColor=black)](https://app.hackthebox.com/users/3290646)
-[![PortSwigger](https://img.shields.io/badge/PortSwigger-Academy-ff6633?style=for-the-badge&logo=portswigger&logoColor=white)](https://portswigger.net/web-security)
-[![LeetCode](https://img.shields.io/badge/LeetCode-Profile-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/u/NwLnFoZCvI/)
 
 ![Profile views](https://komarev.com/ghpvc/?username=bibeksec&label=Profile%20Views&color=00ff9c&style=flat-square)
-![Location](https://img.shields.io/badge/Based%20in-Nepal%20🇳🇵-0a7d5a?style=flat-square)
-![OS](https://img.shields.io/badge/Daily%20driver-Linux%20Mint-87cf3e?style=flat-square&logo=linuxmint&logoColor=white)
-
-</div>
-
-<br/>
-
-<div align="center">
-
-![Detections](https://img.shields.io/badge/10-Detection%20Rules-00ff9c?style=for-the-badge&labelColor=0d1117)
-![Dependencies](https://img.shields.io/badge/0-Required%20Dependencies-58a6ff?style=for-the-badge&labelColor=0d1117)
-![ATT&CK](https://img.shields.io/badge/MITRE-ATT%26CK%20Mapped-ff4d4d?style=for-the-badge&labelColor=0d1117)
-![Live](https://img.shields.io/badge/1-Live%20Deployed%20App-ffbd2e?style=for-the-badge&labelColor=0d1117)
+![Followers](https://img.shields.io/github/followers/bibeksec?style=flat-square&color=0a7d5a&logo=github)
+![Focus](https://img.shields.io/badge/Focus-Defensive%20%2B%20Offensive-0a7d5a?style=flat-square)
+![OS](https://img.shields.io/badge/OS-Linux%20Mint-87cf3e?style=flat-square&logo=linuxmint&logoColor=white)
 
 </div>
 
 ---
 
-## 🧬 Who I Am
+## 🧬 Identity
 
-I'm **Bibek Tamata**, a penetration tester and BIT student from Nepal.
+```text
+$ whoami
+bibek_tamata
 
-Most people learn offense *or* defense. I work on both sides of the same problem: I practice attacks in authorized labs, then build tools that **detect those exact attacks.** An attack I can't detect is half-understood, and a detection I can't test is just a guess.
-
-<div align="center">
-<img src="assets/workflow.svg" alt="Attack, Understand, Detect, Defend workflow" width="100%"/>
-</div>
-
----
-
-## ✅ Proof of Work
-
-Claims are cheap, so here is the evidence:
-
-| I say… | Evidence |
-|:--|:--|
-| I write detections | **10 rules** mapped to MITRE ATT&CK in [Sentinel Detect](https://github.com/bibeksec/sentinel-detect) |
-| I test my work | Sentinel ships with built-in self-tests: `python3 sentinel.py selftest` |
-| I ship real things | [Nepal ScamWatch](https://nepal-scamwatch.bibektamata012.workers.dev/) is **live** on Cloudflare Workers + D1 + R2 |
-| I build responsibly | [GOD'S-EYE](https://github.com/bibeksec/god-eye) labels simulated data and states it does no surveillance of people |
-| I document | Every featured project ships a README with setup and run steps |
-
----
-
-## 🛡️ Flagship Project: Sentinel Detect
-
-> **A Python threat-detection engine that reads SSH and web-server logs and tells you who attacked, how, how serious it is, and which MITRE ATT&CK technique it matches.**
-
-<div align="center">
-<img src="assets/alerts.svg" alt="Illustrative Sentinel Detect alert feed on synthetic events" width="100%"/>
-</div>
-
-| Capability | Detail |
-|:--|:--|
-| 🧠 **Detection logic** | Stateful sliding windows · threshold detection · event correlation |
-| 🎯 **Rules** | Brute force · password spraying · login-after-brute-force · root login · scanners · SQLi · XSS · path traversal · command injection/webshell probes |
-| 🗺️ **Threat-informed** | Every rule mapped to a MITRE ATT&CK technique |
-| 📊 **Output** | Terminal · JSON · HTML reports · firewall-block suggestions |
-| ⚙️ **Operations** | Follow mode for live logs · allowlisting · alert cooldowns · custom rules |
-| ✅ **Quality** | Built-in self-tests · synthetic attack demo · zero required dependencies |
-
-```bash
-git clone https://github.com/bibeksec/sentinel-detect.git && cd sentinel-detect
-python3 sentinel.py --demo        # watch it catch synthetic attacks
-python3 sentinel.py selftest      # verify the detections
+$ cat profile.txt
+role        : BIT student · Cybersecurity learner · Builder
+location    : Nepal 🇳🇵
+interests   : SOC analysis · Web security · Python automation · Responsible OSINT
+long_term   : Skilled security professional, strong in offense AND defense
+philosophy  : Understand the fundamentals. Write my own code. Test it. Document it.
 ```
 
+I'm **Bibek Tamata**, building practical skills in cybersecurity, Python, Linux, networking, and software development. I believe in understanding the fundamentals, writing my own code, testing what I build, and documenting what I learn.
+
 <div align="center">
-<img src="assets/attck.svg" alt="MITRE ATT&CK coverage of Sentinel Detect rules" width="100%"/>
+
+```text
+┌─────────────────────────────────────────────────────────┐
+│  BIBEKSEC :: SECURITY RESEARCH & DEVELOPMENT            │
+│                                                         │
+│   [ LEARN ] ──▶ [ BUILD ] ──▶ [ TEST ] ──▶ [ SECURE ]  │
+│                                                         │
+│   Focus       : Cybersecurity | Python | Linux          │
+│   Environment : Linux Mint | Terminal | Security Labs   │
+│   Philosophy  : Fundamentals first. Evidence always.    │
+└─────────────────────────────────────────────────────────┘
+```
+
 </div>
-
-<details>
-<summary><b>📋 ATT&CK coverage table (click to expand)</b></summary>
-
-<br/>
-
-| Tactic | Technique | Sentinel rules |
-|:--|:--|:--|
-| 🔍 Reconnaissance | T1595.002 / T1595.003 · Active Scanning | `WEB-001` `WEB-004` |
-| 🚪 Initial Access | T1190 · Exploit Public-Facing Application | `WEB-002` `WEB-003` `WEB-005` `WEB-006` |
-| ⚡ Execution | T1059 · Command & Scripting Interpreter | `WEB-006` |
-| 🔑 Credential Access | T1110.001 / T1110.003 · Brute Force / Password Spraying | `SSH-001` `SSH-002` |
-| 👤 Valid Accounts | T1078 / T1078.003 · Valid & Local Accounts | `SSH-003` `SSH-004` |
-| 🗂️ Discovery | T1083 · File & Directory Discovery | `WEB-003` |
-
-</details>
-
-**[→ View Sentinel Detect on GitHub](https://github.com/bibeksec/sentinel-detect)**
 
 ---
 
-## 🚀 More Projects
+## 🚀 Featured Projects
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
-### 🔍 Nepal ScamWatch
-![Status](https://img.shields.io/badge/Status-LIVE-00ff9c?style=flat-square)
-![Cloudflare](https://img.shields.io/badge/Cloudflare%20Workers%20·%20D1%20·%20R2-F38020?style=flat-square&logo=cloudflare&logoColor=white)
+### 🛡️ Sentinel Detect
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Blue Team](https://img.shields.io/badge/Defensive%20Security-0a7d5a?style=flat-square)
+![Logs](https://img.shields.io/badge/Log%20Analysis-555?style=flat-square)
 
-A deployed, serverless scam-reporting platform for Nepal: searchable reports, evidence uploads, and a token-protected moderation panel.
+Hands-on security monitoring: authentication-log analysis and suspicious-login detection.
 
-**Security by design:** input validation, moderation workflow, abuse prevention, careful handling of submitted data.
+- Detects suspicious authentication patterns
+- Generates alerts with severity and investigation context
+- Explores **MITRE ATT&CK** mapping
+- Practices detection logic with synthetic events
 
-**[→ Live demo](https://nepal-scamwatch.bibektamata012.workers.dev/)** · **[→ Source](https://github.com/bibeksec/nepal-scamwatch-a)**
+**[→ Explore Repository](https://github.com/bibeksec/sentinel-detect)**
 
 </td>
 <td width="50%" valign="top">
 
-### 🌐 GOD'S-EYE NEPAL
-![MapLibre](https://img.shields.io/badge/MapLibre%20GL-396CB2?style=flat-square&logo=maplibre&logoColor=white)
-![License](https://img.shields.io/badge/MIT-0a7d5a?style=flat-square)
+### 🔍 Nepal ScamWatch
+![Web Security](https://img.shields.io/badge/Web%20Security-d9534f?style=flat-square)
+![Awareness](https://img.shields.io/badge/Cyber%20Awareness-f0ad4e?style=flat-square)
+![WebApp](https://img.shields.io/badge/Web%20App-0a7d5a?style=flat-square)
 
-Cyber and airspace situational-awareness dashboard: 3D terrain, **live ADS-B aircraft** from OpenSky, animated threat arcs, and a **traffic analyzer** with spike and port-scan detection.
+Scam awareness and reporting, making cybersecurity information more accessible in Nepal.
 
-**Responsible by design:** simulated data is clearly labeled; no public vehicle or camera surveillance.
+- Searchable scam reports and case tracking
+- Secure handling of submitted information
+- Moderation, validation, and abuse prevention
+- Practical web-application security skills
 
-**[→ Source](https://github.com/bibeksec/god-eye)**
+**[→ Explore Repository](https://github.com/bibeksec/nepal-scamwatch)**
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 🌐 GOD-EYE Nepal
+![OSINT](https://img.shields.io/badge/OSINT-6f42c1?style=flat-square)
+![Geospatial](https://img.shields.io/badge/Geospatial-1f6feb?style=flat-square)
+![Data](https://img.shields.io/badge/Data%20Integration-555?style=flat-square)
+
+An open-source intelligence dashboard concept using public data and geographic visualization.
+
+- Works with external data sources
+- Geographic and situational visualization
+- Responsible intelligence research
+- Source reliability, privacy, and data quality
+
+**[→ Explore Repository](https://github.com/bibeksec/god-eye-nepal)**
+
+</td>
+<td width="50%" valign="top">
+
+### 💻 BibekSec Portfolio
+![Frontend](https://img.shields.io/badge/Frontend-E34F26?style=flat-square&logo=html5&logoColor=white)
+![Brand](https://img.shields.io/badge/Personal%20Brand-0a7d5a?style=flat-square)
+![Security](https://img.shields.io/badge/Security%20Projects-555?style=flat-square)
+
+My personal hub for technical projects, security experiments, learning progress, and future research.
+
+- Projects and write-ups in one place
+- Learning progress, documented publicly
+- Home for future research
+
+**[→ Visit Portfolio](https://bibeksec.github.io)**
 
 </td>
 </tr>
 </table>
 
-<div align="center">
-
-<a href="https://github.com/bibeksec/sentinel-detect"><img src="https://github-readme-stats.vercel.app/api/pin/?username=bibeksec&repo=sentinel-detect&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00ff9c&icon_color=00ff9c" alt="sentinel-detect"/></a>
-<a href="https://github.com/bibeksec/nepal-scamwatch-a"><img src="https://github-readme-stats.vercel.app/api/pin/?username=bibeksec&repo=nepal-scamwatch-a&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00ff9c&icon_color=00ff9c" alt="nepal-scamwatch"/></a>
-<a href="https://github.com/bibeksec/god-eye"><img src="https://github-readme-stats.vercel.app/api/pin/?username=bibeksec&repo=god-eye&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00ff9c&icon_color=00ff9c" alt="god-eye"/></a>
-
-</div>
-
 ---
 
-## 🏴‍☠️ Offensive Security
-
-```mermaid
-flowchart LR
-    A[Scope &<br/>Authorization] --> B[Recon &<br/>Enumeration]
-    B --> C[Vulnerability<br/>Analysis]
-    C --> D[Exploitation]
-    D --> E[Privilege<br/>Escalation]
-    E --> F[Evidence &<br/>Reporting]
-    F --> G[Remediation &<br/>Detection]
-    G -.->|retest| B
-```
-
-| Area | What I practice in authorized labs |
-|:--|:--|
-| 🌐 **Web application security** | OWASP Top 10 classes: injection, XSS, broken access control, auth flaws, path traversal |
-| 🔎 **Recon & enumeration** | Port and service discovery with Nmap, content discovery, fingerprinting |
-| 🔧 **Proxy & traffic analysis** | Request interception with Burp Suite, protocol analysis with Wireshark |
-| 🐧 **Linux & privilege escalation** | Permissions, misconfigurations, system internals |
-| 🐍 **Custom tooling** | My own Python and Bash utilities, not only other people's tools |
-| 🛡️ **Detection mindset** | Every technique I learn becomes a log signature or a rule |
-
-### 📊 Lab Progress
+## 🧰 Technical Arsenal
 
 <div align="center">
 
-<a href="https://tryhackme.com/p/bibektamata012"><img src="https://tryhackme-badges.s3.amazonaws.com/bibektamata012.png" alt="TryHackMe badge" height="120"/></a>
-
-</div>
-
-<!-- FILL IN with REAL numbers, then delete this comment:
-| TryHackMe    | rank · rooms completed · streak
-| Hack The Box | machines owned · challenges
-| PortSwigger  | labs solved (Apprentice / Practitioner / Expert)
-| LeetCode     | problems solved
--->
-
-| Platform | Progress |
+| Category | Tools |
 |:--|:--|
-| TryHackMe | [bibektamata012](https://tryhackme.com/p/bibektamata012): *add rank · rooms completed* |
-| Hack The Box | [Profile](https://app.hackthebox.com/users/3290646): *add machines owned · challenges* |
-| PortSwigger Academy | *add labs solved by level* |
-| LeetCode | [Profile](https://leetcode.com/u/NwLnFoZCvI/): *add problems solved* |
-
----
-
-## 🧰 Arsenal
-
-<div align="center">
-
-![Python](https://skillicons.dev/icons?i=py) ![C++](https://skillicons.dev/icons?i=cpp) ![JavaScript](https://skillicons.dev/icons?i=js) ![Bash](https://skillicons.dev/icons?i=bash) ![Linux](https://skillicons.dev/icons?i=linux) ![Nodejs](https://skillicons.dev/icons?i=nodejs) ![Cloudflare](https://skillicons.dev/icons?i=cloudflare) ![HTML](https://skillicons.dev/icons?i=html) ![CSS](https://skillicons.dev/icons?i=css) ![Git](https://skillicons.dev/icons?i=git) ![GitHub](https://skillicons.dev/icons?i=github)
+| **Programming** | ![Python](https://skillicons.dev/icons?i=py) ![C++](https://skillicons.dev/icons?i=cpp) ![JavaScript](https://skillicons.dev/icons?i=js) |
+| **Systems & Networking** | ![Linux](https://skillicons.dev/icons?i=linux) ![Bash](https://skillicons.dev/icons?i=bash) |
+| **Web & Frontend** | ![HTML](https://skillicons.dev/icons?i=html) ![CSS](https://skillicons.dev/icons?i=css) |
+| **Collaboration** | ![Git](https://skillicons.dev/icons?i=git) ![GitHub](https://skillicons.dev/icons?i=github) |
 
 ![Nmap](https://img.shields.io/badge/Nmap-004100?style=for-the-badge&logo=nmap&logoColor=white)
 ![Burp Suite](https://img.shields.io/badge/Burp%20Suite-FF6633?style=for-the-badge&logo=burpsuite&logoColor=white)
 ![Wireshark](https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=white)
 ![OWASP](https://img.shields.io/badge/OWASP-000000?style=for-the-badge&logo=owasp&logoColor=white)
-![MITRE ATT&CK](https://img.shields.io/badge/MITRE%20ATT%26CK-d9534f?style=for-the-badge)
 
-<sub>*Hands-on practice and ongoing learning, not a claim of mastery in every technology.*</sub>
+<sub>*My toolkit reflects hands-on practice and ongoing learning, not a claim of mastery in every technology.*</sub>
 
 </div>
 
@@ -214,33 +158,36 @@ flowchart LR
 
 ## 📡 Current Operations
 
-| | Mission |
+| Status | Mission |
 |:--:|:--|
-| 🟢 | Web app penetration testing in authorized labs |
-| 🟢 | Expanding Sentinel Detect with new detection rules |
-| 🟢 | Python security tooling and fundamentals |
-| 🟡 | Linux administration, privilege escalation, hardening |
-| 🟡 | Networking, traffic analysis, system security |
-| 🟡 | SOC analysis and incident investigation |
-| 🟡 | Lab write-ups and documentation |
+| 🟢 | Strengthening Python fundamentals and problem-solving |
+| 🟢 | Developing Python utilities for security analysis |
+| 🟢 | Practicing Linux administration and command-line workflows |
+| 🟡 | Learning networking, traffic analysis, and system security |
+| 🟡 | Studying web vulnerabilities in **authorized** practice labs |
+| 🟡 | Building foundations in SOC analysis and incident investigation |
+| 🟢 | Improving documentation, testing, and secure coding |
 
 <sub>🟢 active practice · 🟡 learning in progress</sub>
 
 ---
 
-## ⚖️ Rules of Engagement
+## 🧠 Learning in Public
 
-```text
-[✔] Only test systems I own or have explicit written permission to test
-[✔] Labs and CTFs: TryHackMe · Hack The Box · PortSwigger Academy · my own VMs
-[✔] Simulated data unless a real feed is explicitly connected and authorized
-[✔] Responsible disclosure if I ever find a real issue
-[✘] No unauthorized scanning · no real-world targets · no surveillance of people
+A strong security engineer should understand **why** a vulnerability exists, **how** it can be verified safely, **how** it can be detected, and **how** it can be prevented.
+
+```mermaid
+flowchart LR
+    A[Understand the concept] --> B[Reproduce in a controlled lab]
+    B --> C[Write or modify code independently]
+    C --> D[Test edge cases and document results]
+    D --> E[Explain the risk and implement a defense]
+    E -.->|repeat| A
 ```
 
 ```python
 class BibekSec:
-    mission = "Attack. Understand. Detect. Defend."
+    mission = "Learn. Build. Secure."
 
     principles = [
         "Understand before automating",
@@ -256,22 +203,56 @@ class BibekSec:
 
 ---
 
-## 🤝 Let's Build Something
-
-Open to **open-source security tools**, **detection engineering**, **Python automation**, **responsible OSINT**, and **cybersecurity education**.
+## 📊 GitHub Stats
 
 <div align="center">
 
-[![LinkedIn](https://img.shields.io/badge/Connect%20on-LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/bibek-tamata-2b1808446/)
-[![GitHub](https://img.shields.io/badge/Follow%20on-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/bibeksec)
-[![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-ff0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@BibekSec)
+<img height="170" src="https://github-readme-stats.vercel.app/api?username=bibeksec&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00ff9c&icon_color=00ff9c&include_all_commits=true" alt="GitHub stats" />
+<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=bibeksec&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00ff9c" alt="Top languages" />
+
+<img src="https://streak-stats.demolab.com?user=bibeksec&theme=tokyonight&hide_border=true&background=0d1117&ring=00ff9c&fire=00ff9c&currStreakLabel=00ff9c" alt="GitHub streak" />
+
+</div>
+
+---
+
+## 🎯 Security Labs & Community
+
+<div align="center">
+
+[![TryHackMe](https://img.shields.io/badge/TryHackMe-bibektamata012-212c42?style=for-the-badge&logo=tryhackme&logoColor=white)](https://tryhackme.com/p/bibektamata012)
+[![Hack The Box](https://img.shields.io/badge/Hack%20The%20Box-Profile-9fef00?style=for-the-badge&logo=hackthebox&logoColor=black)](https://app.hackthebox.com/)
+[![PortSwigger](https://img.shields.io/badge/PortSwigger-Web%20Security%20Academy-ff6633?style=for-the-badge&logo=portswigger&logoColor=white)](https://portswigger.net/web-security)
+[![LeetCode](https://img.shields.io/badge/LeetCode-Problem%20Solving-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/)
+[![YouTube](https://img.shields.io/badge/YouTube-@BibekSec-ff0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@BibekSec)
+[![Portfolio](https://img.shields.io/badge/Portfolio-bibeksec.github.io-00ff9c?style=for-the-badge&logo=githubpages&logoColor=black)](https://bibeksec.github.io)
+
+</div>
+
+---
+
+## 🤝 Collaboration
+
+I'm interested in:
+
+- 🔓 Meaningful **open-source** contributions
+- 🛡️ **Defensive security** tools
+- 🐍 **Python automation**
+- 🌍 **Responsible OSINT**
+- 🎓 Practical **cybersecurity education**
+
+If you're building something useful in security, or want to exchange ideas and knowledge, let's connect through GitHub.
+
+<div align="center">
 
 <br/>
 
 **CURIOUS BY NATURE. DISCIPLINED BY PRACTICE.**
 
-`ATTACK` · `UNDERSTAND` · `DETECT` · `DEFEND`
+`LEARN` · `BUILD` · `SECURE`
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:0a7d5a,100:00ff9c&height=110&section=footer" alt="footer" width="100%"/>
+*Building skills. Writing code. Earning trust.*
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:0a7d5a,100:00ff9c&height=120&section=footer" alt="footer" width="100%"/>
 
 </div>
