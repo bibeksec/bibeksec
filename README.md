@@ -33,7 +33,7 @@
 
 ---
 
-## 🧬 Who I Am
+##  Who I Am
 
 I'm **Bibek Tamata**, a penetration tester and BIT student from Nepal.
 
@@ -45,7 +45,7 @@ Most people learn offense *or* defense. I work on both sides of the same problem
 
 ---
 
-## ✅ Proof of Work
+##  Proof of Work
 
 Claims are cheap, so here is the evidence:
 
@@ -59,7 +59,7 @@ Claims are cheap, so here is the evidence:
 
 ---
 
-## 🛡️ Flagship Project: Sentinel Detect
+##  Flagship Project: Sentinel Detect
 
 > **A Python threat-detection engine that reads SSH and web-server logs and tells you who attacked, how, how serious it is, and which MITRE ATT&CK technique it matches.**
 
@@ -70,12 +70,12 @@ Claims are cheap, so here is the evidence:
 
 | Capability | Detail |
 |:--|:--|
-| 🧠 **Detection logic** | Stateful sliding windows · threshold detection · event correlation |
-| 🎯 **Rules** | Brute force · password spraying · login-after-brute-force · root login · scanners · SQLi · XSS · path traversal · command injection/webshell probes |
-| 🗺️ **Threat-informed** | Every rule mapped to a MITRE ATT&CK technique |
-| 📊 **Output** | Terminal · JSON · HTML reports · firewall-block suggestions |
-| ⚙️ **Operations** | Follow mode for live logs · allowlisting · alert cooldowns · custom rules |
-| ✅ **Quality** | Built-in self-tests · synthetic attack demo · zero required dependencies |
+| **Detection logic** | Stateful sliding windows · threshold detection · event correlation |
+|  **Rules** | Brute force · password spraying · login-after-brute-force · root login · scanners · SQLi · XSS · path traversal · command injection/webshell probes |
+|  **Threat-informed** | Every rule mapped to a MITRE ATT&CK technique |
+|  **Output** | Terminal · JSON · HTML reports · firewall-block suggestions |
+|  **Operations** | Follow mode for live logs · allowlisting · alert cooldowns · custom rules |
+|  **Quality** | Built-in self-tests · synthetic attack demo · zero required dependencies |
 
 ```bash
 git clone https://github.com/bibeksec/sentinel-detect.git && cd sentinel-detect
@@ -90,12 +90,12 @@ python3 sentinel.py selftest      # verify the detections
 
 | Tactic | Technique | Sentinel rules |
 |:--|:--|:--|
-| 🔍 Reconnaissance | T1595.002 / T1595.003 · Active Scanning | `WEB-001` `WEB-004` |
-| 🚪 Initial Access | T1190 · Exploit Public-Facing Application | `WEB-002` `WEB-003` `WEB-005` `WEB-006` |
-| ⚡ Execution | T1059 · Command & Scripting Interpreter | `WEB-006` |
-| 🔑 Credential Access | T1110.001 / T1110.003 · Brute Force / Password Spraying | `SSH-001` `SSH-002` |
-| 👤 Valid Accounts | T1078 / T1078.003 · Valid & Local Accounts | `SSH-003` `SSH-004` |
-| 🗂️ Discovery | T1083 · File & Directory Discovery | `WEB-003` |
+|  Reconnaissance | T1595.002 / T1595.003 · Active Scanning | `WEB-001` `WEB-004` |
+|  Initial Access | T1190 · Exploit Public-Facing Application | `WEB-002` `WEB-003` `WEB-005` `WEB-006` |
+|  Execution | T1059 · Command & Scripting Interpreter | `WEB-006` |
+|  Credential Access | T1110.001 / T1110.003 · Brute Force / Password Spraying | `SSH-001` `SSH-002` |
+|  Valid Accounts | T1078 / T1078.003 · Valid & Local Accounts | `SSH-003` `SSH-004` |
+|  Discovery | T1083 · File & Directory Discovery | `WEB-003` |
 
 </details>
 
@@ -103,13 +103,13 @@ python3 sentinel.py selftest      # verify the detections
 
 ---
 
-## 🚀 More Projects
+##  More Projects
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
-### 🔍 Nepal ScamWatch
+### Nepal ScamWatch
 ![Status](https://img.shields.io/badge/Status-LIVE-00ff9c?style=flat-square)
 ![Cloudflare](https://img.shields.io/badge/Cloudflare%20Workers%20·%20D1%20·%20R2-F38020?style=flat-square&logo=cloudflare&logoColor=white)
 
@@ -122,7 +122,7 @@ A deployed, serverless scam-reporting platform for Nepal: searchable reports, ev
 </td>
 <td width="50%" valign="top">
 
-### 🌐 GOD'S-EYE NEPAL
+###  GOD'S-EYE NEPAL
 ![MapLibre](https://img.shields.io/badge/MapLibre%20GL-396CB2?style=flat-square&logo=maplibre&logoColor=white)
 ![License](https://img.shields.io/badge/MIT-0a7d5a?style=flat-square)
 
@@ -146,7 +146,7 @@ Cyber and airspace situational-awareness dashboard: 3D terrain, **live ADS-B air
 
 ---
 
-## 🏴‍☠️ Offensive Security
+## Offensive Security
 
 ```mermaid
 flowchart LR
@@ -161,14 +161,14 @@ flowchart LR
 
 | Area | What I practice in authorized labs |
 |:--|:--|
-| 🌐 **Web application security** | OWASP Top 10 classes: injection, XSS, broken access control, auth flaws, path traversal |
-| 🔎 **Recon & enumeration** | Port and service discovery with Nmap, content discovery, fingerprinting |
-| 🔧 **Proxy & traffic analysis** | Request interception with Burp Suite, protocol analysis with Wireshark |
-| 🐧 **Linux & privilege escalation** | Permissions, misconfigurations, system internals |
-| 🐍 **Custom tooling** | My own Python and Bash utilities, not only other people's tools |
-| 🛡️ **Detection mindset** | Every technique I learn becomes a log signature or a rule |
+|  **Web application security** | OWASP Top 10 classes: injection, XSS, broken access control, auth flaws, path traversal |
+|  **Recon & enumeration** | Port and service discovery with Nmap, content discovery, fingerprinting |
+|  **Proxy & traffic analysis** | Request interception with Burp Suite, protocol analysis with Wireshark |
+|  **Linux & privilege escalation** | Permissions, misconfigurations, system internals |
+|  **Custom tooling** | My own Python and Bash utilities, not only other people's tools |
+|  **Detection mindset** | Every technique I learn becomes a log signature or a rule |
 
-### 📊 Lab Progress
+###  Lab Progress
 
 <div align="center">
 <img width="1369" height="707" alt="Screenshot from 2026-10-24 17-49-59" src="https://github.com/user-attachments/assets/40d069fc-1f1a-400a-ae7d-61b186393af2" />
@@ -191,7 +191,7 @@ flowchart LR
 
 ---
 
-## 🧰 Arsenal
+## Arsenal
 
 <div align="center">
 
@@ -225,7 +225,7 @@ flowchart LR
 
 ---
 
-## ⚖️ Rules of Engagement
+##  Rules of Engagement
 
 ```text
 [✔] Only test systems I own or have explicit written permission to test
