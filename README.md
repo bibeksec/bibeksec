@@ -171,8 +171,8 @@ flowchart LR
 ###  Lab Progress
 
 <div align="center">
-<img width="1369" height="707" alt="Screenshot from 2026-10-24 17-49-59" src="https://github.com/user-attachments/assets/40d069fc-1f1a-400a-ae7d-61b186393af2" />
-    
+    <img width="1920" height="1080" alt="Screenshot from 2026-11-02 18-22-30" src="https://github.com/user-attachments/assets/f163a612-c76b-4b74-bc0e-ec27fac83d6a" />
+
 </div>
 
 <!-- FILL IN with REAL numbers, then delete this comment:
