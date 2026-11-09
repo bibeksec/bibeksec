@@ -1,277 +1,384 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>BibekSec – First light on cybersecurity</title>
-<meta name="description" content="BibekSec: independent cybersecurity research by Bibek Tamata from Nepal. Offensive security, detection engineering, OSINT and security tools.">
-<meta name="theme-color" content="#04060f"><meta property="og:title" content="BibekSec: First light on cybersecurity"><meta property="og:description" content="Independent cybersecurity research from Nepal: offensive security, detection engineering, OSINT and tools."><meta property="og:type" content="website"><meta name="color-scheme" content="dark light">
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<title>BibekSec — Build. Break. Secure.</title>
+<meta name="description" content="BibekSec: an independent cybersecurity journey by Bibek Tamata."><meta name="theme-color" content="#0B0914"><meta property="og:title" content="BibekSec — Build. Break. Secure."><meta property="og:description" content="An independent cybersecurity journey focused on understanding systems, discovering vulnerabilities and building security-focused technology.">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
---bg:#edf3f6;--ink:#0b1620;--mut:#4d5f6e;--line:rgba(11,22,32,.16);--red:#d6204a;--gold:#f2b83b;
---disp:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;--body:"Instrument Sans",system-ui,sans-serif}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0a1119;--ink:#e7eef3;--mut:#93a4b2;--line:rgba(231,238,243,.16);--red:#ff5b7e}}
-:root[data-theme=dark]{--bg:#0a1119;--ink:#e7eef3;--mut:#93a4b2;--line:rgba(231,238,243,.16);--red:#ff5b7e}
-html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}*,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--body)}a{color:inherit}:focus-visible{outline:2px solid var(--red);outline-offset:3px}
-.night{--bg:#060a16;--ink:#eaf0f5;--mut:#9aa8bd;--line:rgba(234,240,245,.16);--red:#ff5b7e;background:var(--bg);color:var(--ink)}
-.gr{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
-nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:calc(env(safe-area-inset-top,0px) + 18px) clamp(18px,4vw,56px);color:#fff;mix-blend-mode:difference}
-nav .m{font:800 26px var(--disp);letter-spacing:.14em;text-decoration:none}nav div a{margin-left:24px;font-size:14px;text-decoration:none}nav div a:hover{text-decoration:underline}
+:root{--p:#21143F;--dp:#100C22;--v:#7352C8;--l:#B9A0F5;--o:#FF8A3D;--w:#FFB36B;--bg:#0B0914;--t:#F5F3FA;--m:#A9A2BA;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--t);font:400 1rem/1.65 Manrope,system-ui,sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block}
+.no-gl #gl{display:none}
+.no-gl body,.no-gl{background:radial-gradient(120% 80% at 70% 10%,#3a2470,#21143F 40%,#0B0914 80%) fixed}
+#veil{position:fixed;inset:0;background:#000;z-index:5;pointer-events:none;opacity:1}
+main{position:relative;z-index:10}
+h1,h2,h3{font-family:Unbounded,system-ui,sans-serif;font-weight:600;line-height:1.1;margin:0 0 .6em;letter-spacing:.01em}
+h1{font-size:clamp(2.6rem,9vw,7rem)}h2{font-size:clamp(1.6rem,4.2vw,3.2rem)}h3{font-size:1.05rem}
+a{color:var(--w)}a:focus-visible,button:focus-visible{outline:2px solid var(--o);outline-offset:3px}
+.eyebrow{font:600 .72rem Manrope;letter-spacing:.3em;text-transform:uppercase;color:var(--o);margin:0 0 1rem}
+.muted{color:var(--m)}
+section{min-height:100vh;display:flex;align-items:center;padding:7rem clamp(1.2rem,6vw,6rem) 5rem}
+.in{max-width:1100px;width:100%}.narrow{max-width:560px}.right{margin-left:auto}
+.pan{background:linear-gradient(135deg,rgba(33,20,63,.78),rgba(16,12,34,.5));border:1px solid rgba(185,160,245,.18);border-left:2px solid var(--o);padding:1.4rem 1.6rem;border-radius:4px 22px 4px 22px;backdrop-filter:blur(6px)}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+ul.chips{list-style:none;margin:.6rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.45rem}
+.chips li{font-size:.82rem;padding:.25rem .7rem;border:1px solid rgba(185,160,245,.3);border-radius:99px;color:var(--l);background:rgba(115,82,200,.12)}
+.chips.or li{border-color:rgba(255,138,61,.5);color:var(--w)}
+.btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:2rem}
+.btn{font:700 .78rem Manrope;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--t);padding:1rem 1.6rem;border:1px solid var(--l);border-radius:99px;background:transparent;cursor:pointer;transition:.3s;position:relative;overflow:hidden}
+.btn.pri{background:var(--o);border-color:var(--o);color:#1a0d05}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px -8px var(--o)}
+.btn:not(.pri):hover{background:rgba(185,160,245,.14)}
+header{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:1rem clamp(1.2rem,4vw,3rem);background:linear-gradient(var(--bg),transparent)}
+.brand{font:600 1rem Unbounded;letter-spacing:.2em;color:var(--t);text-decoration:none}.brand b{color:var(--o)}
+nav ul{display:flex;gap:1.6rem;list-style:none;margin:0;padding:0}
+nav a{font:700 .72rem Manrope;letter-spacing:.2em;color:var(--m);text-decoration:none;padding:.4rem 0;border-bottom:2px solid transparent;transition:.3s}
+nav a:hover,nav a.on{color:var(--t);border-color:var(--o)}
+#burger{display:none;background:none;border:1px solid var(--l);color:var(--t);border-radius:8px;padding:.5rem .8rem;font:700 .75rem Manrope;letter-spacing:.15em}
+#dots{position:fixed;right:1rem;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;gap:.7rem}
+#dots button{width:10px;height:10px;border-radius:50%;border:1px solid var(--l);background:transparent;padding:0;cursor:pointer;transition:.3s;position:relative}
+#dots button.on{background:var(--o);border-color:var(--o);transform:scale(1.4)}
+#dots button span{position:absolute;right:20px;top:50%;transform:translateY(-50%);font:700 .65rem Manrope;letter-spacing:.15em;white-space:nowrap;opacity:0;color:var(--t);pointer-events:none;transition:.2s}
+#dots button:hover span,#dots button:focus-visible span,#dots button.on span{opacity:1}
+.scroll{position:absolute;bottom:2rem;left:50%;translate:-50% 0;font:700 .65rem Manrope;letter-spacing:.3em;color:var(--m);text-align:center}
+.scroll i{display:block;width:1px;height:40px;margin:.6rem auto 0;background:linear-gradient(var(--o),transparent);animation:dr 2s infinite}
+@keyframes dr{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.card{position:relative;transition:transform .25s,border-color .3s;transform:perspective(800px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}
+.card:hover,.card:focus-within{border-color:var(--o)}
+.card .rev{max-height:0;opacity:0;overflow:hidden;transition:.5s}
+.card:hover .rev,.card:focus-within .rev,.card:focus .rev{max-height:20rem;opacity:1;margin-top:.8rem}
+@media(hover:none){.card .rev{max-height:none;opacity:1;margin-top:.8rem}}
+.st{display:inline-block;font:700 .65rem Manrope;letter-spacing:.2em;text-transform:uppercase;color:var(--o);border:1px solid var(--o);border-radius:99px;padding:.15rem .6rem;margin-bottom:.7rem}
+.tl{list-style:none;margin:1.2rem 0 0;padding:0 0 0 1.4rem;border-left:1px solid var(--v)}
+.tl li{position:relative;margin-bottom:1rem}.tl li::before{content:"";position:absolute;left:-1.78rem;top:.45rem;width:9px;height:9px;border-radius:50%;background:var(--o)}
+.big{font:600 clamp(1.4rem,3.4vw,2.4rem) Unbounded;line-height:1.2;color:var(--w)}
+.skip{position:absolute;left:-999px;z-index:200}.skip:focus{left:1rem;top:1rem;background:var(--o);color:#000;padding:.6rem 1rem;border-radius:8px}
+#qbtn{background:none;border:1px solid rgba(185,160,245,.35);color:var(--m);border-radius:99px;padding:.4rem .8rem;font:700 .6rem Manrope;letter-spacing:.15em;cursor:pointer;margin-left:auto;margin-right:1rem;transition:.3s}#qbtn:hover{color:var(--t);border-color:var(--o)}.no-gl #qbtn{display:none}
+.op{display:flex;gap:clamp(2rem,5vw,4rem);align-items:center;justify-content:space-between}
+.ph{margin:0;position:relative;width:min(400px,38vw);flex:none;text-align:center}
+.ph::before{content:"";position:absolute;inset:-8% -12% 8%;background:radial-gradient(closest-side,rgba(115,82,200,.65),rgba(255,138,61,.12) 60%,transparent);filter:blur(10px);z-index:-1}
+.ph img{width:100%;height:auto;display:block;-webkit-mask-image:linear-gradient(#000 80%,transparent);mask-image:linear-gradient(#000 80%,transparent);filter:drop-shadow(0 24px 40px rgba(0,0,0,.65))}
+.ph figcaption{font:600 .8rem Unbounded;letter-spacing:.22em;margin-top:-1.6rem;position:relative}.ph small{display:block;font:700 .62rem Manrope;letter-spacing:.3em;color:var(--o);margin-top:.4rem}
+@media(max-width:860px){.op{flex-direction:column-reverse;align-items:stretch}.ph{width:min(260px,70vw);align-self:center}}
+.hero{position:relative;text-align:left}
+.ph img{animation:fl 7s ease-in-out infinite}@keyframes fl{50%{transform:translateY(-8px)}}
+body::after{content:"";position:fixed;inset:0;z-index:59;pointer-events:none;opacity:.08;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>")}
+h1{background:linear-gradient(180deg,#fff 15%,#B9A0F5 85%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 8px 40px rgba(115,82,200,.55))}
+.pan{box-shadow:0 30px 80px -30px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.07)}
+.pan::before{content:"";position:absolute;top:9px;right:9px;width:14px;height:14px;border-top:1px solid var(--l);border-right:1px solid var(--l);opacity:.65}
+.eyebrow::before{content:"";display:inline-block;width:34px;height:1px;background:var(--o);vertical-align:middle;margin-right:.8rem}
+#hud{position:fixed;left:clamp(1.2rem,4vw,3rem);bottom:1.4rem;z-index:50;font:700 .65rem Manrope;letter-spacing:.28em;color:var(--m);pointer-events:none}
+#hud::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--o);margin-right:.7rem;box-shadow:0 0 12px var(--o)}
+.links{display:grid;gap:.6rem;margin:1.5rem 0;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.links a{display:block;padding:.9rem 1.2rem;border:1px solid rgba(185,160,245,.3);border-radius:12px;text-decoration:none;color:var(--t);transition:.3s;background:rgba(33,20,63,.5)}
+.links a:hover{border-color:var(--o);transform:translateY(-3px)}
+.links small{display:block;color:var(--m)}
+footer{position:relative;z-index:10;padding:2rem clamp(1.2rem,6vw,6rem) 3rem;color:var(--m);font-size:.85rem;border-top:1px solid rgba(185,160,245,.15);background:rgba(11,9,20,.7)}
+#loader{position:fixed;inset:0;background:var(--bg);z-index:100;display:grid;place-items:center;transition:opacity 1s}
+#loader div{width:min(320px,80vw)}
+#bar{height:2px;background:rgba(185,160,245,.2);margin:1rem 0}#bar i{display:block;height:100%;width:0;background:var(--o);transition:width .3s}
+#step{font:700 .7rem Manrope;letter-spacing:.25em;color:var(--m);text-transform:uppercase}
+.flash{position:fixed;inset:0;z-index:4;pointer-events:none;box-shadow:inset 0 0 0 0 transparent;background:radial-gradient(ellipse at center,transparent 55%,rgba(11,9,20,.75));opacity:0}
+@media(max-width:860px){nav{position:fixed;inset:0;background:rgba(11,9,20,.96);display:none;place-items:center;z-index:55}nav.open{display:grid}nav ul{flex-direction:column;text-align:center;gap:2rem}nav a{font-size:.95rem}#burger{display:block;position:relative;z-index:56}#dots{display:none}.pan{backdrop-filter:none;background:rgba(21,14,40,.82)}section{padding-top:6rem;align-items:flex-start}.right{margin-left:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#s1">Skip to content</a>
+<div id="loader" role="status" aria-live="polite"><div><p class="brand">BIBEK<b>SEC</b></p><div id="bar"><i></i></div><p id="step">Initializing the universe</p></div></div>
+<canvas id="gl" aria-hidden="true"></canvas><div class="flash" id="flash"></div><div id="veil"></div>
+<header>
+<a class="brand" href="#s0" aria-label="BibekSec home">BIBEK<b>SEC</b></a>
+<button id="qbtn" aria-pressed="false" aria-label="Toggle rendering quality">QUALITY: HIGH</button>
+<button id="burger" aria-expanded="false" aria-controls="nav">MENU</button>
+<nav id="nav" aria-label="Primary"><ul>
+<li><a href="#s0" data-i="0">HOME</a></li><li><a href="#s4" data-i="4">ABOUT</a></li><li><a href="#s5" data-i="5">EXPERTISE</a></li><li><a href="#s6" data-i="6">PROJECTS</a></li><li><a href="#s7" data-i="7">RESEARCH</a></li><li><a href="#s9" data-i="9">CONTACT</a></li></ul></nav>
+</header>
+<div id="dots" role="navigation" aria-label="Chapters"></div>
+<div id="hud" aria-hidden="true">01 / 10 — THE UNKNOWN</div>
 
-/* first light */
-#fl{height:340vh;position:relative;background:#04060f}.pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
-.pin>svg{position:absolute;inset:0;width:100%;height:100%}
-.h0{position:absolute;left:clamp(20px,5vw,72px);top:15vh;max-width:min(900px,88vw);z-index:3;color:#fff;transition:opacity .5s,transform .5s}
-.h0 h1{font:800 clamp(52px,9.2vw,148px)/.88 var(--disp);margin:0 0 20px;letter-spacing:.005em;text-transform:uppercase}.h0 p{margin:0;max-width:44ch;color:rgba(255,255,255,.82)}
-.ph{position:absolute;left:clamp(20px,5vw,72px);bottom:clamp(36px,8vh,90px);z-index:3;color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.5);max-width:min(620px,90vw)}
-.ph .w{position:relative;height:clamp(60px,10.5vw,160px)}.ph .w b{position:absolute;left:0;top:0;font:800 clamp(56px,10.5vw,160px)/1 var(--disp);text-transform:uppercase;opacity:0;transform:translateY(30px);filter:blur(8px);transition:all .8s cubic-bezier(.2,.7,.2,1)}.ph .w b.on{opacity:1;transform:none;filter:none}
-.ph .d{position:relative;min-height:3.4em;margin:6px 0 14px}.ph .d p{position:absolute;margin:0;opacity:0;transition:opacity .8s;max-width:44ch}.ph .d p.on{opacity:1}
-.ph .tr{display:flex;gap:18px;font-size:13px}.ph .tr span{opacity:.5;padding-bottom:4px;border-bottom:2px solid transparent;transition:.6s}.ph .tr span.on{opacity:1;border-color:var(--gold)}
-.tm{position:absolute;right:clamp(20px,4vw,56px);top:50%;transform:translateY(-50%);z-index:3;color:#fff;font:600 13px var(--body);display:flex;flex-direction:column;align-items:center;gap:10px;text-shadow:0 1px 12px rgba(0,0,0,.5)}
-.tm i{display:block;width:2px;height:150px;background:rgba(255,255,255,.35);position:relative}.tm i::after{content:"";position:absolute;left:-4px;width:10px;height:10px;border-radius:50%;background:var(--gold);top:calc(var(--p,0)*140px)}
-@media(max-width:700px){.tm{display:none}}
-.flag{transform-origin:50% 0;animation:sw 3.2s ease-in-out infinite alternate}@keyframes sw{to{transform:rotate(7deg)}}
-@media(prefers-reduced-motion:reduce){.flag{animation:none}html{scroll-behavior:auto}}
-/* sections */
-section{padding:clamp(80px,12vw,170px) clamp(20px,5vw,72px)}.w1{max-width:1240px;margin:0 auto}
-.lb{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mut);margin:0 0 22px}.lb::before{content:"";width:0;height:0;border:7px solid transparent;border-bottom:12px solid var(--red);border-top:0}
-h2{font:800 clamp(48px,8vw,128px)/.9 var(--disp);margin:0 0 30px;text-transform:uppercase;letter-spacing:.005em}
-.two{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(30px,6vw,100px)}@media(max-width:860px){.two{grid-template-columns:1fr}}
-.lead{font-size:clamp(20px,2vw,26px);line-height:1.45;max-width:34ch;margin:0 0 20px}.mut{color:var(--mut)}
-ol.st{margin:0;padding:0;list-style:none;counter-reset:s}ol.st li{counter-increment:s;display:flex;gap:18px;align-items:baseline;border-top:1px solid var(--line);padding:16px 0;font-size:18px}ol.st li::before{content:counter(s);font:800 26px var(--disp);color:var(--red);min-width:26px}
-.pr{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(30px,6vw,100px);margin-top:20px}@media(max-width:860px){.pr{grid-template-columns:1fr}}
-.pr div{border-top:1px solid var(--line);padding:20px 0}.pr b{font:800 30px/1 var(--disp);display:block;margin-bottom:6px;text-transform:uppercase}.pr span{color:var(--mut)}
-.pr div:last-child{grid-column:1/-1;border-bottom:1px solid var(--line)}
-.q{font:800 clamp(34px,5.4vw,78px)/.98 var(--disp);text-transform:uppercase;max-width:20ch;margin:0}.q em{font-style:normal;color:var(--red)}
-.prj{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,5vw,80px);align-items:center;padding:clamp(34px,6vw,80px) 0;border-top:1px solid var(--line)}.prj:nth-of-type(even) .cv{order:2}@media(max-width:860px){.prj{grid-template-columns:1fr}.prj:nth-of-type(even) .cv{order:0}}
-.cv svg{display:block;width:100%;height:auto;border-radius:10px;box-shadow:0 40px 80px -34px rgba(255,91,126,.45)}
-.prj h3{font:800 clamp(38px,5vw,66px)/.95 var(--disp);margin:0 0 6px;text-transform:uppercase}.prj .t{color:var(--red);font-size:14px;margin:0 0 14px}.prj p{margin:0 0 14px;max-width:50ch}.prj a{margin-right:22px;font-weight:600;text-decoration-color:var(--red);text-underline-offset:5px}
-.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,60px);margin-top:10px}@media(max-width:860px){.cols{grid-template-columns:1fr}}
-.cols div{border-top:2px solid var(--ink);padding-top:16px}.cols h3{font:800 38px/1 var(--disp);margin:0 0 10px;text-transform:uppercase}.cols p{margin:0 0 12px;color:var(--mut)}
-.kit{margin-top:56px;border-top:1px solid var(--line)}.kit div{display:grid;grid-template-columns:200px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid var(--line)}.kit b{font-weight:600}@media(max-width:700px){.kit div{grid-template-columns:1fr;gap:2px}}
-.end{position:relative;overflow:hidden;padding-bottom:0}.end svg.rg{display:block;width:100%;height:auto;margin-top:60px}
-.links a{display:inline-block;margin:0 28px 10px 0;font:800 clamp(26px,3.4vw,44px)/1.1 var(--disp);text-transform:uppercase;text-decoration:none;border-bottom:2px solid var(--red)}.links a:hover{color:var(--red)}
-footer{padding:22px clamp(20px,5vw,72px);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;background:#02040c;color:#9aa8bd}
+<main>
+<section id="s0" data-t="The Unknown"><div class="in hero">
+<p class="eyebrow r">BIBEKSEC · Bibek Tamata</p>
+<h1 class="r">THE <span style="color:var(--o)">UNKNOWN</span></h1>
+<p class="r big" style="font-size:clamp(1rem,2.4vw,1.6rem);letter-spacing:.2em">BUILD. BREAK. SECURE.</p>
+<p class="r" style="font-size:1.4rem;margin:.5rem 0">Exploring the digital frontier.</p>
+<p class="r muted narrow">An independent cybersecurity journey focused on understanding systems, discovering vulnerabilities and building security-focused technology.</p>
+<div class="btns r"><a class="btn pri" href="#s1" data-go="1">Enter the experience</a><a class="btn" href="#s6" data-go="6">Explore my work</a></div>
+</div><div class="scroll">SCROLL<i></i></div></section>
 
-#gl{position:absolute;inset:0;width:100%;height:100%;display:block;background:linear-gradient(#04060f,#0c1436)}
-.bloom{position:absolute;inset:0;z-index:2;pointer-events:none;mix-blend-mode:screen;opacity:var(--bo,0);background:radial-gradient(560px circle at var(--sx,50%) var(--sy,40%),var(--bc,rgba(255,120,90,.5)),transparent 65%)}
-.vg{position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,transparent 50%,rgba(2,4,12,.6)),linear-gradient(rgba(2,4,12,.5),transparent 25%)}
-.cv{perspective:1000px}.cv svg{transition:transform .3s cubic-bezier(.2,.7,.2,1);will-change:transform}
+<section id="s1" data-t="The Journey"><div class="in"><div class="pan narrow rv">
+<p class="eyebrow">The Journey</p><h2>The digital world is expanding.</h2>
+<p>Every system holds information. Every connection creates opportunity. Every weakness reveals something worth understanding.</p></div></div></section>
 
-.sk{position:absolute;left:-999px;top:0}.sk:focus{left:10px;top:10px;z-index:100;background:#fff;color:#000;padding:8px 12px}
-nav .ln a.on{text-decoration:underline;text-decoration-color:#e8365d;text-underline-offset:7px;text-decoration-thickness:2px}
-.mb{display:none;all:unset;cursor:pointer;font-size:14px;font-weight:600;border:1px solid currentColor;padding:6px 14px;border-radius:99px}
-.mm{position:fixed;inset:0;z-index:49;background:#060a16;color:#fff;display:none;flex-direction:column;justify-content:center;padding:0 8vw;gap:4px}.mm.o{display:flex}.mm a{font:800 clamp(40px,12vw,64px)/1.1 var(--disp);text-transform:uppercase;text-decoration:none}
-@media(max-width:1000px){nav .ln{display:none}.mb{display:inline-block}}
-.h3{font:800 34px/1 var(--disp);text-transform:uppercase;margin:0 0 12px}
-.tw{overflow-x:auto;margin-top:28px;-webkit-overflow-scrolling:touch}.tbl{width:100%;min-width:720px;border-collapse:collapse;font-size:15.5px}
-.tbl th{font:600 13px var(--body);text-align:left;color:var(--mut);padding:10px 14px 10px 0;border-bottom:2px solid var(--ink)}.tbl td{padding:16px 14px 16px 0;border-bottom:1px solid var(--line);vertical-align:top}.tbl td:first-child{font-weight:600;min-width:170px}.tbl td:last-child{color:var(--mut)}
-.night .tbl td:last-child:not(:first-child){color:var(--red);font-family:ui-monospace,Menlo,monospace;white-space:nowrap}
-.tool{margin-top:clamp(50px,7vw,90px);border:1px solid var(--line);padding:clamp(20px,3vw,36px);border-radius:10px}
-.tool input{display:block;width:100%;max-width:520px;margin:14px 0;padding:12px 14px;font:18px var(--body);background:transparent;color:var(--ink);border:1px solid var(--ink);border-radius:6px}
-.bar{height:6px;max-width:520px;background:var(--line);border-radius:3px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:var(--red);transition:width .4s,background .4s}
-.gl details{border-top:1px solid var(--line);padding:14px 0}.gl details:last-child{border-bottom:1px solid var(--line)}.gl summary{cursor:pointer;font:600 18px var(--body);list-style:none;display:flex;justify-content:space-between}.gl summary::after{content:"+";color:var(--red);font-size:22px}.gl details[open] summary::after{content:"–"}.gl p{margin:8px 0 0;color:var(--mut)}
-.rs a{display:block;padding:10px 0;border-top:1px solid var(--line);font-weight:600;text-decoration:none}.rs a:hover{color:var(--red)}
+<section id="s2" data-t="Threat Landscape"><div class="in"><div class="narrow right rv">
+<p class="eyebrow">The Threat Landscape</p><h2>Where systems fail.</h2>
+<p>Understanding security begins with understanding how systems work, how they fail and how they can be protected. Each marker ahead is a focus area.</p></div>
+<ul class="chips or right rv" style="max-width:560px;justify-content:flex-end;margin-top:1.5rem">
+<li>Web Application Security</li><li>Offensive Security</li><li>Vulnerability Research</li><li>Network Security</li><li>Penetration Testing</li><li>OSINT</li><li>Python Security Automation</li><li>AI and Cybersecurity</li></ul></div></section>
 
-/* ===== cinematic layer ===== */
-@property --b{syntax:'<length-percentage>';inherits:false;initial-value:4.5vh}
-@keyframes fu{from{opacity:0;transform:translateY(16px)}}@keyframes fo{from{opacity:0}}
-@keyframes wr{from{transform:translateY(115%);filter:blur(10px);opacity:0}}
-@keyframes it{from{letter-spacing:.7em;opacity:0;filter:blur(8px)}}@keyframes ln{to{transform:scaleX(1)}}
-@keyframes io{to{clip-path:inset(0 0 100% 0);visibility:hidden}}
-@keyframes bars{from{--b:50vh}}@keyframes op{from{filter:blur(16px) brightness(.3);transform:scale(1.15)}}
-@keyframes gn{0%{transform:translate(0,0)}20%{transform:translate(-40px,20px)}40%{transform:translate(30px,-50px)}60%{transform:translate(-60px,-20px)}80%{transform:translate(50px,40px)}100%{transform:translate(0,0)}}
-.intro{position:fixed;inset:0;z-index:300;background:#02040c;display:grid;place-items:center;text-align:center;color:#fff;clip-path:inset(0);animation:io 1s 1.9s cubic-bezier(.7,0,.2,1) forwards}
-.intro b{display:block;font:800 clamp(38px,8vw,96px)/1 var(--disp);letter-spacing:.3em;padding-left:.3em;animation:it 1.6s cubic-bezier(.16,1,.3,1) both}
-.intro small{display:block;margin-top:12px;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#9aa8bd;animation:fu 1.2s .5s both}
-.intro i{display:block;width:140px;height:1px;margin:24px auto 0;background:linear-gradient(90deg,transparent,#f2b83b,transparent);transform:scaleX(0);animation:ln 1.4s .3s forwards}
-.gr{inset:-80px;animation:gn .8s steps(5) infinite}
-.pgb{position:fixed;top:0;left:0;height:2px;width:100%;transform-origin:0 0;transform:scaleX(0);background:linear-gradient(90deg,var(--gold),var(--red));z-index:80}
-.spot{position:fixed;inset:0;z-index:55;pointer-events:none;mix-blend-mode:overlay;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.1),transparent 70%)}
-@media(pointer:coarse){.spot{display:none}}
-.bars{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(#000,#000) top/100% var(--b) no-repeat,linear-gradient(#000,#000) bottom/100% var(--b) no-repeat;animation:bars 2s 1.8s cubic-bezier(.7,0,.2,1) both}
-#gl{animation:op 2.6s 1.7s cubic-bezier(.2,.7,.2,1) both}
-.bloom::after{content:"";position:absolute;left:0;right:0;top:var(--sy,40%);height:3px;transform:translateY(-50%);background:linear-gradient(90deg,transparent,var(--bc),transparent);filter:blur(2px);opacity:.75}
-nav{animation:fu 1.4s 2.6s both}.tm{animation:fo 1.4s 3s both}.h0 p{animation:fu 1.4s 3.1s both}
-.wd{display:inline-block;overflow:hidden;vertical-align:top;padding:.06em .03em;margin:-.06em -.03em}.wd>i{display:inline-block;font-style:normal}
-.h0 h1 .wd>i{animation:wr 1.4s calc(2.1s + var(--i)*.1s) cubic-bezier(.16,1,.3,1) both}
-h2.sp .wd>i{transform:translateY(115%);filter:blur(8px);opacity:0;transition:transform 1.1s cubic-bezier(.16,1,.3,1) calc(var(--i)*.07s),filter 1s calc(var(--i)*.07s),opacity .8s calc(var(--i)*.07s)}
-h2.sp.in .wd>i{transform:none;filter:none;opacity:1}
-.rv{opacity:0;transform:translateY(36px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1)}.rv.in{opacity:1;transform:none}
-.cv{position:relative;transform:translate3d(0,var(--py,0px),0)}
-.cv::after{content:"";position:absolute;inset:0;border-radius:10px;pointer-events:none;background:radial-gradient(320px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.2),transparent 60%);opacity:0;transition:opacity .4s}.cv:hover::after{opacity:1}
-.tbl tr td{transition:background .3s}.tbl tr:hover td{background:rgba(127,127,127,.08)}
-.prj a{background:linear-gradient(var(--red),var(--red)) 0 100%/0 2px no-repeat;transition:background-size .45s,color .3s;text-decoration:none;padding-bottom:4px}.prj a:hover{background-size:100% 2px}
-@media(prefers-reduced-motion:reduce){.intro,.gr,.spot{display:none}nav,.tm,.h0 p,#gl,.bars{animation:none}}
+<section id="s3" data-t="Enter the Capsule"><div class="in" style="text-align:center"><p class="eyebrow rv">The Hatch</p><h2 class="rv">Enter the capsule.</h2><p class="muted rv">The hatch opens. The universe stays visible through the glass.</p></div></section>
 
-/* ===== one continuous cinematic scene ===== */
-#gl{position:fixed;inset:0;z-index:-1}#fl{background:none}
-section,section.night{background:linear-gradient(rgba(4,8,20,.38),rgba(4,8,20,.74) 16%,rgba(4,8,20,.74) 84%,rgba(4,8,20,.38))}
-section:not(.night){--bg:#060a16;--ink:#eaf0f5;--mut:#a7b4c6;--line:rgba(234,240,245,.18);--red:#ff5b7e;color:var(--ink)}
-section{text-shadow:0 1px 18px rgba(0,0,0,.45)}.end{padding-bottom:clamp(60px,8vw,110px)}
-.lb{letter-spacing:.26em;text-transform:uppercase;font-size:12px}.lb::after{content:"";flex:0 0 80px;height:1px;background:currentColor;opacity:.35}
-/* ===== final polish ===== */
-html{scrollbar-width:thin;scrollbar-color:#3a4766 #060a16}::selection{background:var(--red);color:#fff}
-h1,h2,.q,.lead{text-wrap:balance}p{text-wrap:pretty}
-section,section.night{background:linear-gradient(var(--tint,transparent),transparent 45%),linear-gradient(rgba(4,8,20,.38),rgba(4,8,20,.74) 16%,rgba(4,8,20,.74) 84%,rgba(4,8,20,.38));border-top:1px solid rgba(255,255,255,.05)}
-.cue{position:absolute;left:50%;bottom:calc(4.5vh + 22px);transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:10px;color:#fff;font:600 11px var(--body);letter-spacing:.3em;text-transform:uppercase;transition:opacity .6s}.cue>*{animation:fo 1.4s 3.4s both}
-.cue i{width:1px;height:46px;background:linear-gradient(#fff,transparent);transform-origin:top;animation:cu 2s ease-in-out infinite,fo 1.4s 3.4s both}@keyframes cu{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
-@media(max-width:900px){.cue{display:none}}
-footer a{text-underline-offset:4px}.links a,.rs a,.prj a{transition:color .3s}
-</style></head><body>
-<div class="gr"></div><div class="intro" aria-hidden="true"><div><b>BIBEKSEC</b><i></i><small>First light on cybersecurity</small></div></div><div class="pgb" id="pgb"></div>
-<a class="sk" href="#about">Skip to content</a>
-<nav><a class="m" href="#top">BIBEKSEC</a><div class="ln"><a href="#about">About</a><a href="#work">Work</a><a href="#research">Research</a><a href="#guide">Field guide</a><a href="#safety">Stay safe</a><a href="#path">Learn</a><a href="#connect">Connect</a></div><button class="mb" id="mb" aria-expanded="false" aria-controls="mm">Menu</button></nav>
-<div class="mm" id="mm"><a href="#about">About</a><a href="#work">Work</a><a href="#research">Research</a><a href="#guide">Field guide</a><a href="#safety">Stay safe</a><a href="#path">Learn</a><a href="#connect">Connect</a></div>
+<section id="s4" data-t="The Operator"><div class="in op"><div class="pan narrow rv">
+<p class="eyebrow">The Operator</p><h2>BIBEK TAMATA</h2>
+<p class="big" style="font-size:1rem;color:var(--l)">Cybersecurity Learner | Offensive Security Enthusiast | BIT Student</p>
+<p>I am a BIT student from Nepal building practical cybersecurity skills through hands-on experimentation, security research and continuous learning.</p>
+<p>My interests include web application security, vulnerability discovery, penetration testing, Python automation and understanding how digital systems can be secured.</p>
+<p><strong>Philosophy.</strong> I believe meaningful security comes from curiosity, disciplined practice and understanding systems beyond their surface.</p>
+<p><strong>Current direction.</strong> Web application security, offensive fundamentals and Python security tooling.</p>
+<p><strong>Education.</strong> BIT — Mid-West University, Nepal.</p>
+<p><a href="https://github.com/bibeksec" rel="noopener">GitHub</a> · <a href="https://tryhackme.com/p/bibektamata012" rel="noopener">TryHackMe</a> · <a href="https://app.hackthebox.com/profile/3290646" rel="noopener">Hack The Box</a></p></div><figure class="ph rv"><img src="data:image/webp;base64,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" width="640" height="640" alt="Portrait of Bibek Tamata" decoding="async"><figcaption>BIBEK TAMATA<small>OPERATOR · NEPAL</small></figcaption></figure></div></section>
 
-<canvas id="gl" aria-hidden="true"></canvas><div id="fl"><div class="pin" id="top">
-<div class="bloom" id="bl"></div><div class="vg"></div><div class="bars"></div>
-<div class="cue" id="cue" aria-hidden="true"><span>Scroll</span><i></i></div><div class="h0" id="h0"><h1>The internet is not as secure as it looks.</h1><p>Bibek Tamata, independent cybersecurity research from Nepal. I explore vulnerabilities, investigate digital threats, and build tools that make technology more secure.</p></div>
-<div class="ph" id="ph" style="opacity:0"><div class="w"><b class="on">Attack.</b><b>Understand.</b><b>Detect.</b><b>Defend.</b></div>
-<div class="d"><p class="on">I learn how systems break: web vulnerabilities, reconnaissance and exploitation fundamentals, always in authorized labs.</p><p>I reproduce it, read the evidence, and explain why it worked before I make any claim.</p><p>Sentinel Detect turns logs into alerts and maps each one to MITRE ATT&amp;CK.</p><p>I fix it, harden it, and test that the defense actually holds.</p></div>
-<div class="tr"><span class="on">Attack</span><span>Understand</span><span>Detect</span><span>Defend</span></div></div>
-<div class="tm" aria-hidden="true"><span id="clk">03:00</span><i id="gg"></i><span>NPT</span></div>
-</div></div>
+<section id="s5" data-t="Technical Arsenal"><div class="in right"><p class="eyebrow rv">Technical Arsenal</p><h2 class="rv">Instruments on board.</h2>
+<div class="grid">
+<div class="pan rv"><h3>Programming</h3><ul class="chips"><li>Python</li><li>C++</li><li>Bash</li></ul></div>
+<div class="pan rv"><h3>Environment</h3><ul class="chips"><li>Linux</li><li>Git</li><li>Docker</li></ul></div>
+<div class="pan rv"><h3>Security</h3><ul class="chips"><li>Nmap</li><li>Burp Suite</li><li>Wireshark</li><li>Metasploit</li><li>ffuf</li><li>Gobuster</li></ul></div>
+<div class="pan rv"><h3>Platforms</h3><ul class="chips or"><li>TryHackMe</li><li>Hack The Box</li><li>PortSwigger Web Security Academy</li></ul></div></div></div></section>
 
-<section id="about"><div class="w1 two"><div><p class="lb">About</p><h2>Curiosity is my first security tool.</h2></div>
-<div><p class="lead">I’m Bibek Tamata, a BIT student from Nepal with a strong interest in cybersecurity, programming, and digital technology.</p>
-<p class="mut">My journey is driven by one question: how do systems work, where do they fail, and how can we make them stronger? I spend my time on Linux, Python, web application security, vulnerability research, digital investigations, and defensive security. My long-term goal is to become a skilled cybersecurity professional with strong foundations in both offense and defense.</p>
-<ol class="st"><li>Learn the fundamentals</li><li>Understand the technology</li><li>Experiment in authorized environments</li><li>Build practical tools</li><li>Document what I discover</li><li>Keep improving</li></ol></div></div>
-<div class="w1" style="margin-top:clamp(70px,10vw,140px)"><p class="lb">Mindset</p><p class="q">An attack you cannot explain is a guess. A detection you have not tested is <em>an assumption.</em></p>
-<div class="pr"><div><b>Understand before automating</b><span>Tools are useful, but the underlying technology matters more.</span></div><div><b>Reproduce before making claims</b><span>Evidence matters more than assumptions.</span></div><div><b>Test before trusting</b><span>Every result deserves verification.</span></div><div><b>Document before publishing</b><span>Knowledge is worth more when others can reproduce it.</span></div><div><b>Respect authorization</b><span>Research must respect privacy, ownership, and responsible disclosure.</span></div></div></div></section>
+<section id="s6" data-t="Projects"><div class="in"><p class="eyebrow rv">Project Exploration</p><h2 class="rv">The research station.</h2>
+<p class="muted rv" style="max-width:560px">Hover, focus or tap a module to reveal it. Links are shown only once confirmed.</p>
+<div class="grid" id="projects">
+<article class="pan card rv" tabindex="0"><span class="st">Demonstration</span><h3>SENTINEL DETECT</h3><p class="muted">Python-based security log monitoring demonstration with synthetic alerts.</p><div class="rev"><p>A practical project exploring security event monitoring, log analysis and suspicious activity detection.</p><ul class="chips"><li>Python</li><li>Log analysis</li></ul><p class="muted">Repository: link not yet confirmed.</p></div></article>
+<article class="pan card rv" tabindex="0"><span class="st">Concept</span><h3>GOD EYE</h3><p class="muted">Nepal-focused intelligence dashboard concept.</p><div class="rev"><p>An experimental dashboard concept for exploring geospatial and publicly available intelligence data.</p><ul class="chips"><li>OSINT</li><li>Geospatial</li></ul><p class="muted">Repository: link not yet confirmed.</p></div></article>
+<article class="pan card rv" tabindex="0"><span class="st">Concept</span><h3>NEPAL SCAMWATCH</h3><p class="muted">Scam reporting and moderation concept.</p><div class="rev"><p>A concept focused on making scam reporting and awareness more accessible through a structured reporting workflow.</p><ul class="chips"><li>Web</li><li>Moderation workflow</li></ul><p class="muted">Repository: link not yet confirmed.</p></div></article>
+<article class="pan card rv" tabindex="0"><span class="st">Ongoing</span><h3>BIBEKSEC HIDDEN INTELLIGENCE LAB</h3><p class="muted">Personal cybersecurity research and experimentation environment.</p><div class="rev"><p>A learning environment for security testing, vulnerability research, tooling and technical experimentation.</p><ul class="chips"><li>Linux</li><li>Docker</li><li>Python</li></ul><p class="muted">Repository: link not yet confirmed.</p></div></article>
+</div></div></section>
 
-<section class="night" id="work"><div class="w1"><p class="lb">Selected work</p><h2>Ideas become instruments.</h2>
-<div class="prj"><div class="cv"><svg class='cov' viewBox='0 0 480 300' role='img' aria-label='Sentinel Detect'><defs><radialGradient id='sg' cx='.5' cy='.5' r='.6'><stop offset='0' stop-color='#1f56dc' stop-opacity='.7'/><stop offset='1' stop-color='#02051a' stop-opacity='0'/></radialGradient><linearGradient id='sh' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='#6fa0ff'/><stop offset='1' stop-color='#1f56dc'/></linearGradient></defs><rect width='480' height='300' rx='8' fill='#050c2e'/><rect width='480' height='300' rx='8' fill='url(#sg)'/><g fill='none' stroke='#6fa0ff' stroke-opacity='.3'><circle cx='240' cy='130' r='70'/><circle cx='240' cy='130' r='110'/><circle cx='240' cy='130' r='150'/></g><path d='M240 62l62 22v44c0 34-26 56-62 70-36-14-62-36-62-70V84z' fill='url(#sh)' stroke='#cfe0ff' stroke-width='2'/><path d='M214 134l20 20 36-42' fill='none' stroke='#fff' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/><circle cx='350' cy='80' r='5' fill='#ff5468'/><circle cx='350' cy='80' r='15' fill='none' stroke='#ff5468' stroke-opacity='.6'/><g fill='none' stroke='#3f7cf4' font-family='ui-monospace,Menlo,monospace' font-size='11'><rect x='96' y='250' width='64' height='22' rx='3'/><rect x='176' y='250' width='64' height='22' rx='3'/><rect x='256' y='250' width='92' height='22' rx='3'/><g fill='#cfe0ff' stroke='none'><text x='128' y='265' text-anchor='middle'>T1110</text><text x='208' y='265' text-anchor='middle'>T1190</text><text x='302' y='265' text-anchor='middle'>T1505.003</text></g></g></svg></div><div><h3>Sentinel Detect</h3><p class="t">Python, detection engineering</p><p>Reads authentication and web logs and spots brute force, password spraying, SQL injection, XSS, path traversal, command injection and webshell probes. Each alert is mapped to MITRE ATT&amp;CK, with JSON and HTML reports, synthetic attack demos and automated self-tests.</p><a href="https://github.com/bibeksec/sentinel-detect" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="prj"><div class="cv"><svg class='cov' viewBox='0 0 480 300' role='img' aria-label='Nepal ScamWatch preview'><rect width='480' height='300' rx='8' fill='#050c2e'/><rect width='480' height='28' rx='8' fill='#0e1b57'/><circle cx='16' cy='14' r='4' fill='#ff5468'/><circle cx='30' cy='14' r='4' fill='#ffb84d'/><circle cx='44' cy='14' r='4' fill='#4fd18b'/><rect x='70' y='6' width='340' height='16' rx='8' fill='#050c2e'/><text x='240' y='18' fill='#9fabd4' font-size='10' text-anchor='middle' font-family='ui-monospace,Menlo,monospace'>nepal-scamwatch.workers.dev</text><text x='20' y='60' fill='#fff' font-size='20' font-family='Georgia,serif'>Nepal ScamWatch</text><rect x='20' y='72' width='320' height='26' rx='4' fill='none' stroke='#3f7cf4'/><text x='32' y='90' fill='#6f7fb0' font-size='12' font-family='sans-serif'>Search scam reports</text><rect x='350' y='72' width='110' height='26' rx='4' fill='#1f56dc'/><text x='405' y='89' fill='#fff' font-size='12' font-weight='700' text-anchor='middle' font-family='sans-serif'>Report a scam</text><g font-family='sans-serif'><g><rect x='20' y='112' width='440' height='46' rx='6' fill='#0a1650' stroke='#1d3a9a'/><path d='M44 126l12 22H32z' fill='#ffb84d'/><rect x='72' y='125' width='190' height='8' rx='4' fill='#cfe0ff'/><rect x='72' y='142' width='280' height='6' rx='3' fill='#4a5680'/><rect x='392' y='126' width='56' height='18' rx='9' fill='#12603a'/><text x='420' y='139' fill='#9ff0c4' font-size='10' text-anchor='middle'>verified</text></g><g><rect x='20' y='166' width='440' height='46' rx='6' fill='#0a1650' stroke='#1d3a9a'/><path d='M44 180l12 22H32z' fill='#ff5468'/><rect x='72' y='179' width='150' height='8' rx='4' fill='#cfe0ff'/><rect x='72' y='196' width='240' height='6' rx='3' fill='#4a5680'/><rect x='392' y='180' width='56' height='18' rx='9' fill='#5a4310'/><text x='420' y='193' fill='#ffd98a' font-size='10' text-anchor='middle'>in review</text></g><g><rect x='20' y='220' width='440' height='46' rx='6' fill='#0a1650' stroke='#1d3a9a'/><path d='M44 234l12 22H32z' fill='#ffb84d'/><rect x='72' y='233' width='210' height='8' rx='4' fill='#cfe0ff'/><rect x='72' y='250' width='170' height='6' rx='3' fill='#4a5680'/><rect x='392' y='234' width='56' height='18' rx='9' fill='#12603a'/><text x='420' y='247' fill='#9ff0c4' font-size='10' text-anchor='middle'>verified</text></g></g><text x='20' y='288' fill='#6f7fb0' font-size='10' font-family='ui-monospace,Menlo,monospace'>Cloudflare Workers, D1, R2 evidence storage (illustrative)</text></svg></div><div><h3>Nepal ScamWatch</h3><p class="t">Cloudflare Workers, D1, R2</p><p>A Nepal-focused platform for reporting digital scams and sharing evidence, built to make fraud awareness more accessible. Reports are searchable, evidence is stored in R2, and a token-protected panel handles moderation.</p><a href="https://nepal-scamwatch.bibektamata012.workers.dev/" target="_blank" rel="noopener">Live demo</a><a href="https://github.com/bibeksec/nepal-scamwatch-a" target="_blank" rel="noopener">GitHub</a></div></div>
-<div class="prj"><div class="cv"><svg class='cov' viewBox='0 0 480 300' role='img' aria-label='God-Eye Nepal map preview'><defs><linearGradient id='ge' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#0b1d63'/><stop offset='1' stop-color='#02051a'/></linearGradient></defs><rect width='480' height='300' rx='8' fill='url(#ge)'/><g stroke='#fff' stroke-opacity='.06'><path d='M60 0V300M120 0V300M180 0V300M240 0V300M300 0V300M360 0V300M420 0V300M0 60H480M0 120H480M0 180H480M0 240H480'/></g><g fill='none' stroke='#2f63e8' stroke-opacity='.5'><path d='M0 230C80 200 140 242 220 210S360 160 480 200'/><path d='M0 250C90 222 150 262 230 232S370 184 480 222'/><path d='M0 270C100 246 160 282 240 254S380 208 480 244'/><path d='M0 150C60 120 130 160 200 130S340 90 480 120'/><path d='M0 170C70 142 140 182 210 152S350 114 480 142'/></g><g fill='none' stroke='#6fa0ff' stroke-opacity='.35'><circle cx='300' cy='130' r='40'/><circle cx='300' cy='130' r='80'/><circle cx='300' cy='130' r='120'/></g><path d='M50 250C140 210 220 170 300 130' fill='none' stroke='#fff' stroke-opacity='.7' stroke-dasharray='4 6'/><path d='M300 116L308 142L300 137L292 142Z' fill='#fff' transform='rotate(35 300 130)'/><circle cx='390' cy='84' r='5' fill='#ff5468'/><circle cx='390' cy='84' r='14' fill='none' stroke='#ff5468' stroke-opacity='.6'/><circle cx='180' cy='200' r='4' fill='#ffb84d'/><rect x='16' y='262' width='120' height='20' rx='3' fill='#3a0c18'/><text x='76' y='276' fill='#ff8a98' font-size='10' text-anchor='middle' font-family='ui-monospace,Menlo,monospace'>SIMULATED THREATS</text><text x='464' y='276' fill='#9fabd4' font-size='10' text-anchor='end' font-family='ui-monospace,Menlo,monospace'>MapLibre GL, OpenSky public data</text></svg></div><div><h3>God’s-Eye Nepal</h3><p class="t">Geospatial intelligence, network visualization</p><p>An interactive map on MapLibre GL with 3D terrain and buildings, public OpenSky aircraft data, and port-scan and traffic-spike detection. The README clearly separates simulated threats from live public data.</p><a href="https://github.com/bibeksec/god-eye" target="_blank" rel="noopener">GitHub</a></div></div>
-<p class="mut" style="margin-top:20px">Also on GitHub: <a href="https://github.com/bibeksec/Protect" target="_blank" rel="noopener">Protect</a> and the <a href="https://bibeksec.github.io/bibeksec.github.io./" target="_blank" rel="noopener">portfolio hub</a>.</p></div></section>
+<section id="s7" data-t="Research Lab"><div class="in"><p class="eyebrow rv">Research and Security Lab</p><h2 class="rv">Areas of ongoing exploration.</h2>
+<p class="muted rv" style="max-width:620px">These are learning and research areas — not claims of professional mastery.</p>
+<div class="grid">
+<div class="pan rv"><h3>Web Application Security</h3><ul class="chips"><li>SQL Injection</li><li>Cross-Site Scripting</li><li>IDOR / BOLA</li><li>Broken Access Control</li><li>Authentication vulnerabilities</li><li>CSRF</li><li>SSRF</li><li>Path Traversal</li></ul></div>
+<div class="pan rv"><h3>Offensive Security</h3><ul class="chips"><li>Reconnaissance</li><li>Enumeration</li><li>Vulnerability assessment</li><li>Exploitation fundamentals</li><li>Privilege escalation</li><li>Post-exploitation fundamentals</li></ul></div>
+<div class="pan rv"><h3>Security Research</h3><ul class="chips"><li>OSINT</li><li>Python security tooling</li><li>Network analysis</li><li>Reverse engineering fundamentals</li></ul></div></div></div></section>
 
-<section id="research"><div class="w1"><p class="lb">Research</p><h2>Break it. Watch it. Trace it.</h2>
-<div class="cols"><div><h3>Offensive</h3><p>Web application security: SQL injection, XSS, IDOR and broken access control, authentication and session flaws, SSRF, misconfiguration, API security and file uploads.</p><p>Network security: reconnaissance, port and service discovery, protocol analysis and vulnerability assessment.</p><p>Research: exploitation fundamentals, reverse engineering, binary exploitation and security automation.</p></div>
-<div><h3>Defensive</h3><p>SOC work, SIEM, log analysis, threat detection and incident response.</p><p>Digital forensics, network traffic analysis, malware analysis and detection engineering.</p><p>Everything is organized around the MITRE ATT&amp;CK framework.</p></div>
-<div><h3>OSINT</h3><p>Username intelligence, domain and DNS reconnaissance, public footprint analysis and metadata investigation.</p><p>Image geolocation, website intelligence and public threat intelligence, always within privacy and legal boundaries.</p></div></div>
-<div class="kit"><div><b>Programming</b><span>Python, C++, JavaScript</span></div><div><b>Systems</b><span>Linux Mint, Ubuntu, the Linux command line</span></div><div><b>Offensive tools</b><span>Burp Suite, Nmap, Gobuster, ffuf, Metasploit</span></div><div><b>Defensive tools</b><span>Wireshark, security log analysis, network monitoring</span></div><div><b>OSINT tools</b><span>Sherlock, DNS intelligence, metadata analysis</span></div><div><b>Development</b><span>Git, GitHub, Docker, HTML, CSS, JavaScript</span></div></div>
-<p class="mut" style="margin-top:16px"><em>My working and learning toolkit, not a claim of equal mastery across every technology.</em></p></div></section>
+<section id="s8" data-t="Achievements"><div class="in"><p class="eyebrow rv">Achievements and Journey</p>
+<div class="grid">
+<div class="pan rv"><h3>TryHackMe</h3><p class="big">#1 IN NEPAL<br><span style="font-size:.6em;color:var(--l)">MONTHLY LEADERBOARD<br>USER-REPORTED · NOVEMBER 2026</span></p><p class="muted">Reported by Bibek on 6 November 2026. This reflects a monthly leaderboard position, not a permanent national ranking.</p></div>
+<div class="pan rv"><h3>Education</h3><p>BIT — Mid-West University, Nepal.</p><h3 style="margin-top:1.2rem">Learning philosophy</h3><p>Learn deeply. Practice consistently. Understand before exploiting. Secure what you discover.</p></div>
+<div class="pan rv"><h3>Learning journey</h3><ul class="tl"><li>Foundations: Python, C++, Bash, Linux</li><li>Hands-on labs and platforms</li><li>Web application security focus</li><li>Building security tools and projects</li></ul><p class="muted">Stages only — dates and milestones will be added when confirmed.</p></div></div></div></section>
 
-<section id="guide"><div class="w1"><p class="lb">Field guide</p><h2>How things break, and how they are caught.</h2>
-<p class="lead">Nine web weaknesses I study in authorized labs. For each one, the question is the same: what goes wrong, what evidence does it leave, and what stops it.</p><div class="tw"><table class="tbl"><tr><th>Weakness</th><th>What goes wrong</th><th>How it shows up</th><th>How it is prevented</th></tr><tr><td>SQL injection</td><td>User input is treated as database code.</td><td>Odd quotes and keywords in request logs, database errors.</td><td>Parameterized queries, least-privilege database accounts.</td></tr><tr><td>Cross-site scripting</td><td>A site runs attacker-supplied script in a visitor’s browser.</td><td>Script tags and event handlers in parameters, CSP violation reports.</td><td>Output encoding, Content Security Policy, safe templating.</td></tr><tr><td>Broken access control and IDOR</td><td>Changing an ID reveals someone else’s data.</td><td>One account requesting many sequential IDs.</td><td>Server-side ownership checks on every request.</td></tr><tr><td>Authentication flaws</td><td>Weak, guessable or unprotected logins.</td><td>Bursts of failed logins, logins from new places.</td><td>MFA, rate limiting, lockouts, strong password hashing.</td></tr><tr><td>Session management</td><td>Session tokens can be stolen or reused.</td><td>One session used from two places, tokens in URLs.</td><td>Secure and HttpOnly cookies, rotation after login, short lifetimes.</td></tr><tr><td>SSRF</td><td>The server is tricked into making requests for the attacker.</td><td>Server requests to internal addresses or metadata endpoints.</td><td>Outbound allow-lists, network segmentation.</td></tr><tr><td>Security misconfiguration</td><td>Defaults, debug modes and open services are left on.</td><td>Probes for exposed admin panels and files.</td><td>Hardened baselines, automated configuration checks.</td></tr><tr><td>File upload flaws</td><td>Uploaded files can run as code or fill storage.</td><td>New script files in upload folders.</td><td>Type and size checks, storage outside the web root, no execution.</td></tr></table></div></div></section>
-
-<section class="night" id="detect"><div class="w1"><p class="lb">Detection notes</p><h2>Every attack leaves evidence.</h2>
-<p class="lead mut">These are the behaviors Sentinel Detect looks for. One event rarely proves anything, so context and correlation matter.</p><div class="tw"><table class="tbl"><tr><th>Signal</th><th>What it looks like in the logs</th><th>ATT&amp;CK</th></tr><tr><td>Brute force or password spraying</td><td>Many failed logins from one source, or one password tried across many accounts, sometimes ending in a success.</td><td>T1110</td></tr><tr><td>Exploiting a public web app</td><td>Requests with SQL keywords, ../ sequences or unusual parameters in access logs.</td><td>T1190</td></tr><tr><td>Web shell</td><td>A new script file appears in a web folder, followed by repeated odd requests to it.</td><td>T1505.003</td></tr><tr><td>Command injection</td><td>Web requests followed by shell commands run by the web server user.</td><td>T1059</td></tr><tr><td>Network scanning</td><td>One source touches many ports or hosts in a short time.</td><td>T1046</td></tr><tr><td>Valid account misuse</td><td>A real account logging in at unusual times or from a new place.</td><td>T1078</td></tr></table></div>
-<div class="two" style="margin-top:clamp(50px,7vw,100px)"><div><h3 class="h3">When an alert fires</h3><p class="mut">A calm, repeatable routine beats a fast guess.</p></div>
-<ol class="st"><li>Confirm: is it real, or a false positive?</li><li>Scope: what else did this source or account touch?</li><li>Contain: cut access without destroying evidence.</li><li>Preserve: keep logs and artifacts safe and timestamped.</li><li>Fix and learn: patch, tune the detection, write it down.</li></ol></div></div></section>
-
-<section id="safety"><div class="w1"><p class="lb">Stay safe</p><h2>Security for everyone, not only experts.</h2>
-<div class="two"><div><h3 class="h3">Everyday defense</h3><ol class="st"><li>Use a password manager and a unique password for every account.</li><li>Turn on MFA, preferring an authenticator app or security key over SMS.</li><li>Install updates promptly on phone, laptop and apps.</li><li>Back up important files in two places.</li><li>Check a link before you tap it.</li><li>Install apps only from official stores.</li></ol></div>
-<div><h3 class="h3">Scam red flags</h3><ol class="st"><li>Urgency or threats such as “act now or lose your account”.</li><li>Requests for an OTP, PIN or password. Real banks and wallets never ask.</li><li>Prizes or lotteries you never entered.</li><li>Job or overseas-employment offers that ask you to pay first.</li><li>Investments that promise guaranteed high returns.</li><li>A link or number that does not match the real organization.</li></ol>
-<p class="mut" style="margin-top:14px">If in doubt, stop. Do not click or send money. Contact the organization through its official channel, then report the scam.</p></div></div>
-<div class="tool"><h3 class="h3" style="margin-top:0">Password strength check</h3><label for="pw" class="mut">Test a throwaway password. It is checked in your browser and never sent anywhere.</label>
-<input id="pw" type="text" autocomplete="off" spellcheck="false" placeholder="Type a sample password"><div class="bar"><i id="pb"></i></div><p id="po" class="mut" aria-live="polite">Type a sample to see an estimate.</p>
-<p class="mut" style="font-size:14px">The estimate assumes random characters and an offline attack at 10 billion guesses per second. Real passwords follow patterns and fall faster, so uniqueness and MFA matter more than any score.</p></div></div></section>
-
-<section class="night" id="path"><div class="w1"><div class="two"><div><p class="lb">Learn</p><h2>The path I’m following.</h2><p class="lead mut">It’s also the path I’d suggest to anyone starting out. Each step makes the next one easier.</p></div>
-<ol class="st"><li>Fundamentals: how computers, networks and the web work.</li><li>Linux: the command line, permissions, processes and logs.</li><li>Networking: TCP/IP, DNS and HTTP, plus Wireshark to see them.</li><li>Python: automate tasks and write small security tools.</li><li>Web security: PortSwigger Web Security Academy and the OWASP Top 10.</li><li>Guided practice: TryHackMe rooms, then Hack The Box.</li><li>Detection: read logs, write rules, map them to MITRE ATT&amp;CK.</li><li>Document: write up what you learn and share it.</li></ol></div></div></section>
-
-<section id="ethics"><div class="w1 two"><div><p class="lb">Ethics</p><h2>Rules of engagement.</h2></div>
-<div><p class="lead">Skill without permission is not research. These rules apply to every lab I run.</p><ol class="st"><li>Test only what you own or have written permission to test.</li><li>Stay inside the agreed scope.</li><li>Practice in labs, CTFs and on your own machines.</li><li>Protect any data you happen to see.</li><li>Report findings responsibly and give the owner time to fix them.</li><li>Know the laws where you live.</li></ol></div></div></section>
-
-<section class="night" id="glossary"><div class="w1 two"><div><p class="lb">Glossary</p><h2>Plain-language terms.</h2>
-<p class="lead mut">Keep learning with trusted sources:</p><div class="rs"><a href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener">OWASP Top 10</a><a href="https://attack.mitre.org/" target="_blank" rel="noopener">MITRE ATT&amp;CK</a><a href="https://portswigger.net/web-security" target="_blank" rel="noopener">PortSwigger Academy</a><a href="https://tryhackme.com/" target="_blank" rel="noopener">TryHackMe</a><a href="https://www.hackthebox.com/" target="_blank" rel="noopener">Hack The Box</a></div></div>
-<div class="gl"><details><summary>Threat</summary><p>Anything that could cause harm to a system or its data.</p></details><details><summary>Vulnerability</summary><p>A weakness that a threat could use.</p></details><details><summary>Exploit</summary><p>A method or code that takes advantage of a vulnerability.</p></details><details><summary>Zero-day</summary><p>A vulnerability the vendor does not yet know about or has not fixed.</p></details><details><summary>CIA triad</summary><p>Confidentiality, integrity and availability: the three goals of security.</p></details><details><summary>IOC</summary><p>Indicator of compromise: evidence such as an IP address, file hash or domain linked to an attack.</p></details><details><summary>SIEM</summary><p>A system that collects and correlates logs from many sources to raise alerts.</p></details><details><summary>SOC</summary><p>Security operations center: the team that monitors, triages and responds to alerts.</p></details><details><summary>MFA</summary><p>Multi-factor authentication: proving identity with more than a password.</p></details><details><summary>Phishing</summary><p>Tricking people into giving up credentials or running something harmful.</p></details><details><summary>Red and blue team</summary><p>Red teams simulate attackers. Blue teams detect and defend.</p></details><details><summary>OSINT</summary><p>Open-source intelligence: analysis of publicly available information.</p></details></div></div></section>
-
-<section class="night end" id="connect"><div class="w1"><p class="lb">Beyond the terminal</p><h2>Let’s connect. Let’s learn. Let’s build.</h2>
-<p class="lead mut" style="max-width:52ch">Cybersecurity is a continuous journey of learning, experimentation and collaboration. I welcome conversations about security, technology, research and interesting projects.</p>
-<div class="links" style="margin-top:30px"><a href="https://github.com/bibeksec" target="_blank" rel="noopener">GitHub</a><a href="https://youtube.com/@BibekSec" target="_blank" rel="noopener">YouTube</a><a href="https://tryhackme.com/p/bibektamata012" target="_blank" rel="noopener">TryHackMe</a><a href="https://app.hackthebox.com/profile/3290646" target="_blank" rel="noopener">Hack The Box</a><a href="https://leetcode.com/u/NwLnFoZCvI/" target="_blank" rel="noopener">LeetCode</a><a href="https://bibeksec.github.io/bibeksec.github.io./" target="_blank" rel="noopener">Portfolio</a></div></div>
-</section>
-<footer><span>BibekSec. Build. Break. Secure. Independent learning, practical research, responsible exploration.</span><span><a href="#top">Back to top ↑</a> · © 2026 BibekSec</span></footer>
+<section id="s9" data-t="The Final Destination"><div class="in" style="text-align:center;display:flex;flex-direction:column;align-items:center">
+<h2 class="rv" style="font-size:clamp(1.8rem,5.5vw,4.4rem)">THE JOURNEY DOESN’T END HERE.</h2>
+<p class="rv muted narrow">Always exploring. Always learning. Always building.</p>
+<p class="rv big" style="letter-spacing:.15em;margin-top:1rem">BIBEKSEC<br><span style="font-size:.5em;color:var(--l)">BUILD. BREAK. SECURE.</span></p>
+<div class="links rv" style="width:100%;max-width:900px;margin-top:2rem">
+<a href="https://github.com/bibeksec" rel="noopener">GitHub<small>github.com/bibeksec</small></a>
+<a href="https://tryhackme.com/p/bibektamata012" rel="noopener">TryHackMe<small>bibektamata012</small></a>
+<a href="https://app.hackthebox.com/profile/3290646" rel="noopener">Hack The Box<small>profile 3290646</small></a>
+<a href="https://youtube.com/@BibekSec" rel="noopener">YouTube<small>@BibekSec</small></a>
+<a href="https://leetcode.com/u/NwLnFoZCvI/" rel="noopener">LeetCode<small>NwLnFoZCvI</small></a>
+<span class="muted" style="display:block;padding:.9rem 1.2rem">Email<small style="display:block">Not yet added</small></span></div></div></section>
+</main>
+<footer><strong>BIBEKSEC © 2026</strong> — Designed around curiosity, exploration and security. <button type="button" onclick="scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})" style="all:unset;cursor:pointer;color:var(--w);margin-left:1rem;padding:.5rem;font-weight:700">↑ Back to top</button></footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
-const hex=h=>[1,3,5].map(i=>parseInt(h.substr(i,2),16)),mix=(a,b,u)=>'#'+a.map((v,i)=>Math.round(v+(b[i]-v)*u).toString(16).padStart(2,'0')).join('');
-const K=[{t:'#04060f',b:'#0c1436',n:'#05081a',s:'#e8365d'},{t:'#1c2460',b:'#f08a4b',n:'#2a2347',s:'#ffd37a'},{t:'#5fa8e0',b:'#e4f2f9',n:'#6a7f8f',s:'#fff6d8'}].map(o=>Object.fromEntries(Object.entries(o).map(([k,v])=>[k,hex(v)])));
-const $=id=>document.getElementById(id),clamp=(x,a,b)=>Math.min(b,Math.max(a,x)),sm=(a,b,x)=>{x=clamp((x-a)/(b-a),0,1);return x*x*(3-2*x)};
-const fl=$('fl'),h0=$('h0'),ph=$('ph'),bs=document.querySelectorAll('.ph .w b'),ds=document.querySelectorAll('.ph .d p'),ts=document.querySelectorAll('.ph .tr span');let cur=-1;
-function text(t){h0.style.opacity=Math.max(0,1-t*9);h0.style.transform='translateY('+(-t*160)+'px)';ph.style.opacity=clamp((t-.08)*12,0,1);
-const n=clamp(Math.floor((t-.08)/.23),0,3);if(n!==cur){cur=n;[bs,ds,ts].forEach(l=>l.forEach((e,k)=>e.classList.toggle('on',k===n)))}
-const m=Math.round((3+t*9)*60);$('clk').textContent=String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0');$('gg').style.setProperty('--p',t)}
-function pal(t){const s=t*2,i=Math.min(1,Math.floor(s)),u=s-i,a=K[i],b=K[i+1],o={};for(const k in a)o[k]=mix(a[k],b[k],u);return o}
-text(0);addEventListener('scroll',()=>{if(!window.THREE)text(clamp(-fl.getBoundingClientRect().top/(fl.offsetHeight-innerHeight),0,1))},{passive:true});
-function hash(x,y){const h=Math.sin(x*127.1+y*311.7)*43758.5453;return h-Math.floor(h)}
-function vn(x,y){const ix=Math.floor(x),iy=Math.floor(y),fx=x-ix,fy=y-iy,ux=fx*fx*(3-2*fx),uy=fy*fy*(3-2*fy),a=hash(ix,iy),b=hash(ix+1,iy),c=hash(ix,iy+1),d=hash(ix+1,iy+1);return a+(b-a)*ux+(c-a)*uy+(a-b-c+d)*ux*uy}
-function ridged(x,y){let s=0,a=.5,f=.011,w=1;for(let i=0;i<6;i++){let n=1-Math.abs(vn(x*f,y*f)*2-1);n*=n;n*=w;w=clamp(n*2,0,1);s+=n*a;f*=2.05;a*=.5}return s}
-function init(){
-const cv=$('gl'),R=new THREE.WebGLRenderer({canvas:cv,antialias:true});R.setPixelRatio(Math.min(devicePixelRatio,1.5));
-const S=new THREE.Scene(),C=new THREE.PerspectiveCamera(55,1,.5,900);S.fog=new THREE.Fog(0x0c1436,40,380);
-const U={top:{value:new THREE.Color()},bot:{value:new THREE.Color()},sc:{value:new THREE.Color()},sd:{value:new THREE.Vector3(0,1,0)}};
-const sky=new THREE.Mesh(new THREE.SphereGeometry(600,32,16),new THREE.ShaderMaterial({uniforms:U,side:THREE.BackSide,depthWrite:false,fog:false,vertexShader:'varying vec3 vP;void main(){vP=normalize(position);gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:'uniform vec3 top,bot,sc,sd;varying vec3 vP;void main(){float h=clamp(vP.y*1.5+.08,0.,1.);vec3 c=mix(bot,top,pow(h,.55));float s=max(dot(vP,normalize(sd)),0.);c+=sc*(pow(s,6.)*.45+pow(s,60.)*.5+pow(s,900.)*3.);gl_FragColor=vec4(c,1.);}'}));S.add(sky);
-// terrain
-const g=new THREE.PlaneGeometry(420,420,250,250);g.rotateX(-Math.PI/2);const P=g.attributes.position,H=[];
-for(let i=0;i<P.count;i++){const x=P.getX(i),z=P.getZ(i),m=sm(40,-170,z),v=clamp(Math.abs(x-Math.sin(z*.02)*16)/70,0,1),fl2=v*v*(3-2*v),h=ridged(x+500,z+500)*(14+95*m)*(.22+.78*fl2)+vn(x*.06,z*.06)*1.6;P.setY(i,h);H.push(h)}
-g.computeVertexNormals();const N=g.attributes.normal,col=new Float32Array(P.count*3);
-for(let i=0;i<P.count;i++){const x=P.getX(i),z=P.getZ(i),h=H[i],ny=N.getY(i),n1=vn(x*.25,z*.25)-.5;
-let r=.30+n1*.12,gg=.29+n1*.1,b=.31+n1*.1;const low=1-sm(4,16,h);r+=(.11-r)*low*.8;gg+=(.17-gg)*low*.8;b+=(.12-b)*low*.8;
-const sn=sm(20,36,h+n1*14)*sm(.5,.82,ny+n1*.25);r+=(.96-r)*sn;gg+=(.97-gg)*sn;b+=(1-b)*sn;col.set([r,gg,b],i*3)}
-g.setAttribute('color',new THREE.BufferAttribute(col,3));S.add(new THREE.Mesh(g,new THREE.MeshLambertMaterial({vertexColors:true})));
-// stars
-const sp=new Float32Array(1600*3);for(let i=0;i<1600;i++){const a=Math.random()*6.283,e=Math.random()*1.4+.03,r=520;sp.set([r*Math.cos(e)*Math.cos(a),r*Math.sin(e),r*Math.cos(e)*Math.sin(a)],i*3)}
-const sg=new THREE.BufferGeometry();sg.setAttribute('position',new THREE.BufferAttribute(sp,3));const stars=new THREE.Points(sg,new THREE.PointsMaterial({size:1.6,color:0xffffff,transparent:true,fog:false,sizeAttenuation:false,depthWrite:false}));S.add(stars);
-// clouds
-const cc=document.createElement('canvas');cc.width=cc.height=512;const cx=cc.getContext('2d');for(let i=0;i<90;i++){const x=Math.random()*512,y=Math.random()*512,r=30+Math.random()*70,gr=cx.createRadialGradient(x,y,0,x,y,r);gr.addColorStop(0,'rgba(255,255,255,.55)');gr.addColorStop(1,'rgba(255,255,255,0)');cx.fillStyle=gr;cx.fillRect(x-r,y-r,r*2,r*2)}
-const ct=new THREE.CanvasTexture(cc);ct.wrapS=ct.wrapT=THREE.RepeatWrapping;ct.repeat.set(3,3);const cm=new THREE.MeshBasicMaterial({map:ct,transparent:true,opacity:.3,depthWrite:false,fog:false}),cl=new THREE.Mesh(new THREE.PlaneGeometry(900,900),cm);cl.rotation.x=-Math.PI/2;cl.position.y=24;S.add(cl);
-// atmosphere: valley mist, floating dust, birds
-const mist=new THREE.Mesh(new THREE.PlaneGeometry(900,900),new THREE.MeshBasicMaterial({map:ct,transparent:true,opacity:.2,depthWrite:false,fog:false}));mist.rotation.x=-Math.PI/2;mist.position.y=5;S.add(mist);
-const NP=500,pa=new Float32Array(NP*3);for(let i=0;i<NP;i++)pa.set([(Math.random()-.5)*110,2+Math.random()*50,-150+Math.random()*220],i*3);
-const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pa,3));const dust=new THREE.Points(pg,new THREE.PointsMaterial({size:2,color:0xffffff,transparent:true,opacity:.3,sizeAttenuation:false,depthWrite:false,fog:false}));S.add(dust);
-const bg=new THREE.BufferGeometry();bg.setAttribute('position',new THREE.BufferAttribute(new Float32Array([0,0,0,-2.4,.8,0,-1.3,-.05,0,0,0,0,2.4,.8,0,1.3,-.05,0]),3));
-const birds=[];for(let i=0;i<7;i++){const b=new THREE.Mesh(bg,new THREE.MeshBasicMaterial({color:0x0a1020,side:THREE.DoubleSide,transparent:true,opacity:0,fog:false,depthWrite:false}));b.scale.setScalar(1.3);S.add(b);birds.push(b)}
-// prayer flags
-const fc=[0x2b6fd6,0xf4f4f4,0xe8365d,0x2f9e5a,0xf2b83b],fg=[],pts=[];
-for(let i=0;i<=20;i++){const u=i/20;pts.push(new THREE.Vector3(2+u*34,17-6*Math.sin(Math.PI*u)-u*3,34-u*14))}
-S.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),new THREE.LineBasicMaterial({color:0x222222})));
-for(let i=0;i<18;i++){const p=pts[i+1],q=new THREE.PlaneGeometry(1.7,2.2);q.translate(0,-1.1,0);const m=new THREE.Mesh(q,new THREE.MeshBasicMaterial({color:fc[i%5],side:THREE.DoubleSide}));m.position.copy(p);S.add(m);fg.push(m)}
-const sunL=new THREE.DirectionalLight(0xffffff,0),hemi=new THREE.HemisphereLight(0x223366,0x05081a,.9);S.add(sunL,hemi);
-const D=new THREE.Vector3(),vp=new THREE.Vector3();let U2=0,T=0,mx=0,my=0,clock=0;
-addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
-function size(){R.setSize(cv.clientWidth,cv.clientHeight,false);C.aspect=cv.clientWidth/cv.clientHeight;C.updateProjectionMatrix()}addEventListener('resize',size);size();
-const bl=$('bl');
-function frame(){requestAnimationFrame(frame);const r=fl.getBoundingClientRect();if(document.hidden)return;
-const t=clamp(-r.top/(r.height-innerHeight),0,1);text(t);const sh=document.documentElement.scrollHeight-innerHeight,hs=fl.offsetHeight-innerHeight,u=clamp((scrollY-hs)/Math.max(1,sh-hs),0,1);T+=(t-T)*.055;U2+=(u-U2)*.05;const tt=T*(1-.96*U2),tc=T+U2*.3;clock+=.016;
-const p=pal(tt),eld=-8+62*tt,el=eld*Math.PI/180;
-D.set(Math.cos(el)*.62,Math.sin(el),-Math.cos(el)*.78).normalize();
-sunL.position.copy(D).multiplyScalar(300);sunL.intensity=clamp((eld+4)/22,0,1)*1.9;sunL.color.set(p.s);
-hemi.color.set(p.t);hemi.groundColor.set(p.n);hemi.intensity=.9+.4*tt;
-S.fog.color.set(p.b);S.fog.far=300+tt*200;
-const glow=clamp((eld+12)/22,0,1);U.top.value.set(p.t);U.bot.value.set(p.b);U.sc.value.set(p.s).multiplyScalar(glow);U.sd.value.copy(D);
-stars.material.opacity=clamp(1-tt*3,0,1);cm.color.set(p.b);cm.opacity=.2+.14*tt;ct.offset.x+=.00012;mist.material.color.set(p.b);mist.material.opacity=.16+.2*tt;dust.material.color.set(p.s);dust.material.opacity=.12+.4*glow;
-for(let i=0;i<NP;i++){pa[i*3+1]+=.012+Math.sin(clock+i)*.004;if(pa[i*3+1]>55)pa[i*3+1]=2}pg.attributes.position.needsUpdate=true;
-birds.forEach((b,i)=>{const a=clock*.12+i*.9;b.position.set(Math.sin(a)*45+(i-3)*6,30+Math.sin(a*2+i)*4+tt*8,-70-i*9);b.scale.y=1.3*(.35+Math.abs(Math.sin(clock*6+i))*.65);b.material.opacity=sm(.05,.4,tt)*(1-sm(.7,.95,tt))*.85});
-C.position.set(Math.sin(tc*2.2)*10+mx*5,7+tc*22-my*2+Math.sin(clock*.6)*.15,62-tc*92);C.lookAt(Math.sin(tc*1.4)*14,16+tc*10,-120);sky.position.copy(C.position);stars.position.copy(C.position);
-fg.forEach((m,i)=>{m.rotation.y=Math.sin(clock*2.2+i*.7)*.7;m.rotation.z=Math.sin(clock*1.7+i)*.12});
-C.rotateZ(Math.sin(clock*.5)*.006);C.fov=56-tt*9;C.updateProjectionMatrix();R.render(S,C);
-if(Math.abs(tt-(window._lt??-1))>.01){window._lt=tt;document.body.style.setProperty('--tint','rgba('+hex(p.b).join(',')+',.14)')}vp.copy(C.position).addScaledVector(D,500).project(C);const w=cv.clientWidth,h=cv.clientHeight;bl.style.setProperty('--sx',((vp.x*.5+.5)*w)+'px');bl.style.setProperty('--sy',((-vp.y*.5+.5)*h)+'px');bl.style.setProperty('--bc','rgba('+hex(p.s).join(',')+',.6)');bl.style.setProperty('--bo',vp.z<1?glow*.9:0)}
-frame()}
-if(window.THREE){try{init()}catch(e){console.error(e)}}
-document.querySelectorAll('.cv').forEach(c=>{const s=c.firstElementChild;c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.setProperty('--gx',(x+.5)*100+'%');c.style.setProperty('--gy',(y+.5)*100+'%');s.style.transform='rotateY('+(x*10)+'deg) rotateX('+(-y*8)+'deg)'});c.addEventListener('pointerleave',()=>s.style.transform='')});
-
-const mb=$('mb'),mm=$('mm');mb.onclick=()=>{const o=mm.classList.toggle('o');mb.setAttribute('aria-expanded',o);mb.textContent=o?'Close':'Menu'};mm.querySelectorAll('a').forEach(a=>a.onclick=()=>{mm.classList.remove('o');mb.textContent='Menu'});
-const lk=[...document.querySelectorAll('.ln a')];const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)lk.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}),{threshold:.35});['about','work','research','guide','safety','path','connect'].forEach(i=>io.observe($(i)));
-const pw=$('pw'),pb=$('pb'),po=$('po');
-function fmt(x){if(x<1)return'instantly';const u=[[60,'seconds'],[3600,'minutes'],[86400,'hours'],[31557600,'days'],[3.15576e9,'years'],[3.15576e11,'centuries']];let d=1,n='seconds';for(const[k,l]of u){if(x<k){return Math.max(1,Math.round(x/d))+' '+n}d=k;n=({60:'minutes',3600:'hours',86400:'days',31557600:'years',3.15576e9:'centuries',3.15576e11:'millennia'})[k]}return'longer than anyone will wait'}
-pw.addEventListener('input',()=>{const v=pw.value;if(!v){pb.style.width='0';po.textContent='Type a sample to see an estimate.';return}
-let c=0;if(/[a-z]/.test(v))c+=26;if(/[A-Z]/.test(v))c+=26;if(/\d/.test(v))c+=10;if(/[^A-Za-z0-9]/.test(v))c+=33;let b=v.length*Math.log2(c),note='';
-if(['password','123456','qwerty','admin','letmein','welcome','iloveyou','nepal','abc123'].some(w=>v.toLowerCase().includes(w))){b=Math.min(b,18);note=' It contains a very common word or pattern, so attackers would try it early.'}
-if(/^(.)\1+$/.test(v))b=Math.min(b,6);const secs=Math.pow(2,b)/2/1e10,lv=b<28?['Very weak',12]:b<40?['Weak',30]:b<60?['Fair',55]:b<80?['Strong',80]:['Very strong',100];
-pb.style.width=lv[1]+'%';pb.style.background=b<40?'#ff5b7e':b<60?'#f2b83b':'#2f9e5a';po.textContent=lv[0]+'. About '+Math.round(b)+' bits. Estimated time to crack: '+fmt(secs)+'.'+note});
-</script><script>
-(()=>{const RM=matchMedia('(prefers-reduced-motion:reduce)').matches,$=id=>document.getElementById(id),cl=(x,a,b)=>Math.min(b,Math.max(a,x));
-const split=el=>{const t=el.textContent.trim();el.setAttribute('aria-label',t);el.textContent='';t.split(/\s+/).forEach((w,i)=>{const s=document.createElement('span'),n=document.createElement('i');s.className='wd';s.setAttribute('aria-hidden','true');n.style.setProperty('--i',i);n.textContent=w;s.appendChild(n);el.append(s,' ')})};
-if(!RM){split(document.querySelector('.h0 h1'));const hs=[...document.querySelectorAll('h2')];hs.forEach(h=>{split(h);h.classList.add('sp')});
-const rv=[...document.querySelectorAll('.lb,.lead,.q,.pr div,ol.st li,.prj,.cols>div,.kit div,.tbl tr,.tool,.gl details,.links a,.rs a,.h3')];
-rv.forEach(e=>{e.classList.add('rv');e.style.transitionDelay=Math.min([...e.parentNode.children].indexOf(e),8)*70+'ms'});
-const io2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io2.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -8% 0px'});rv.concat(hs).forEach(e=>io2.observe(e));
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,small=innerWidth<720,q=small?.4:innerWidth<1100?.65:1;
+const secs=$$('main section'),N=secs.length,SQ=[0,1,2,3,3,3,3,3,4,4],SN=['The Unknown','The Journey','Discovery','Inside BibekSec','Beyond the Unknown'],nav=$('#nav'),burger=$('#burger');
+const hasG=!!window.gsap&&!!window.ScrollTrigger;if(hasG)gsap.registerPlugin(ScrollTrigger);
+// ---------- navigation (works without WebGL) ----------
+const goTo=i=>{secs[i].scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});nav.classList.remove('open');burger.setAttribute('aria-expanded','false')};
+$$('a[href^="#s"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();goTo(+a.getAttribute('href').slice(2))}));
+burger.onclick=()=>{const o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o)};
+const dots=$('#dots');secs.forEach((s,i)=>{if(i&&SQ[i]===SQ[i-1])return;const b=document.createElement('button');b.setAttribute('aria-label','Sequence '+(SQ[i]+1)+': '+SN[SQ[i]]);b.innerHTML='<span>'+SN[SQ[i]].toUpperCase()+'</span>';b.onclick=()=>goTo(i);dots.appendChild(b)});
+const navA=$$('nav a'),dotB=$$('#dots button'),hud=$('#hud');
+let cur=0,target=0,idx=0;
+function update(){
+ const y=scrollY+innerHeight*.5;let k=0;
+ for(let i=0;i<N;i++){if(secs[i].offsetTop<=y)k=i}
+ const s=secs[k],f=Math.min(1,Math.max(0,(y-s.offsetTop)/s.offsetHeight));
+ target=Math.min(N-1,Math.max(0,k+f-.5));
+ if(k!==idx||!dotB[SQ[k]].classList.contains('on')){idx=k;hud.textContent=String(SQ[k]+1).padStart(2,'0')+' / 05 — '+SN[SQ[k]].toUpperCase();dotB.forEach((b,i)=>b.classList.toggle('on',i===SQ[k]));let a=0;navA.forEach((l,j)=>{if(+l.dataset.i<=k)a=j});navA.forEach((l,j)=>l.classList.toggle('on',j===a))}
 }
-const pg=$('pgb'),cvs=[...document.querySelectorAll('.cv')];let tk=0;
-const up=()=>{tk=0;const m=document.documentElement.scrollHeight-innerHeight;pg.style.transform='scaleX('+(m>0?scrollY/m:0)+')';if(!RM)cvs.forEach(c=>{const r=c.getBoundingClientRect();c.style.setProperty('--py',cl((r.top+r.height/2-innerHeight/2)/innerHeight*-40,-40,40).toFixed(1)+'px')})};
-addEventListener('scroll',()=>{if(!tk)tk=requestAnimationFrame(up)},{passive:true});up();const cue=$('cue');addEventListener('scroll',()=>{cue.style.opacity=scrollY>40?0:''},{passive:true})})();
-</script></body></html>
+if(hasG)ScrollTrigger.create({trigger:'main',start:'top top',end:'bottom bottom',onUpdate:update});else addEventListener('scroll',update,{passive:true});
+addEventListener('resize',update);update();
+if(hasG&&!reduce){$$('.rv').forEach(el=>gsap.from(el,{scrollTrigger:{trigger:el,start:'top 88%'},y:50,opacity:0,duration:1.1,ease:'power3.out',clearProps:'transform,opacity'}));
+gsap.to('.hero',{opacity:0,y:-80,ease:'none',scrollTrigger:{trigger:'#s0',start:'top top',end:'60% top',scrub:true}});
+gsap.to('.scroll',{opacity:0,ease:'none',scrollTrigger:{trigger:'#s0',start:'top top',end:'20% top',scrub:true}});
+$$('section:not(#s0) h2:not(.rv)').forEach(el=>gsap.fromTo(el,{yPercent:8},{yPercent:-8,ease:'none',scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:.6}}))}
+$$('.card').forEach(c=>c.addEventListener('pointermove',e=>{if(reduce)return;const r=c.getBoundingClientRect();c.style.setProperty('--ry',((e.clientX-r.left)/r.width-.5)*8+'deg');c.style.setProperty('--rx',-((e.clientY-r.top)/r.height-.5)*8+'deg')}));
+$$('.card').forEach(c=>c.addEventListener('pointerleave',()=>{c.style.setProperty('--ry','0deg');c.style.setProperty('--rx','0deg')}));
+// ---------- loader: progress = real build steps completed ----------
+const loader=$('#loader'),bar=$('#bar i'),stepEl=$('#step');let done=0;const TOTAL=5;
+const step=t=>{done++;bar.style.width=(done/TOTAL*100)+'%';stepEl.textContent=t};
+function endLoader(){loader.style.opacity=0;setTimeout(()=>loader.remove(),1000)}
+// ---------- WebGL ----------
+let renderer;
+try{const t=document.createElement('canvas');if(!window.THREE||!(t.getContext('webgl')||t.getContext('webgl2')))throw 0;
+ renderer=new THREE.WebGLRenderer({canvas:$('#gl'),antialias:!small,powerPreference:'low-power'})}catch(e){document.documentElement.classList.add('no-gl')}
+if(!renderer){$('#veil').remove();endLoader();if(hasG&&!reduce)gsap.from('.hero .r',{y:30,opacity:0,stagger:.2,duration:1});return}
+let lowQ=false;const dpr=()=>lowQ?.75:Math.min(devicePixelRatio,small?1:1.5);
+renderer.setPixelRatio(dpr());renderer.setSize(innerWidth,innerHeight);
+renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;
+const scene=new THREE.Scene(),BG=0x0B0914;scene.background=new THREE.Color(BG);scene.fog=new THREE.FogExp2(0x2a1a55,.011);
+const cam=new THREE.PerspectiveCamera(55,innerWidth/innerHeight,.1,900);
+step('Universe initialized');
+let seed=7;const R=()=>{seed=seed*16807%2147483647;return(seed-1)/2147483646},rr=(a,b)=>a+R()*(b-a);
+const hash=(x,y,z)=>{const s=Math.sin(x*12.9898+y*78.233+z*37.719)*43758.5453;return s-Math.floor(s)};
+const col=h=>new THREE.Color(h);
+const disposables=[];
+// lights
+scene.add(new THREE.HemisphereLight(0xB9A0F5,0x21143F,.5));
+const rim=new THREE.DirectionalLight(0x9a7be6,1.6);rim.position.set(6,2,-9);scene.add(rim);
+const sun=new THREE.DirectionalLight(0xFFB36B,1.1);sun.position.set(-8,6,4);scene.add(sun);
+const pl=new THREE.PointLight(0xB9A0F5,2.2,40);scene.add(pl);
+// image-based lighting: procedural violet space environment with a warm sun and cool rim, prefiltered for realistic reflections
+{const es=new THREE.Scene(),eg=new THREE.SphereGeometry(50,32,16),em=new THREE.ShaderMaterial({side:THREE.BackSide,vertexShader:'varying vec3 p;void main(){p=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:'varying vec3 p;void main(){vec3 d=normalize(p);vec3 c=mix(vec3(.04,.025,.1),vec3(.42,.3,.78),smoothstep(-.5,1.,d.y));c+=vec3(1.,.7,.42)*smoothstep(.86,.985,dot(d,normalize(vec3(-.6,.5,.6))))*7.;c+=vec3(.6,.5,1.)*smoothstep(.9,.99,dot(d,normalize(vec3(.7,.3,-.5))))*3.5;c+=vec3(1.,.54,.24)*smoothstep(.93,.99,dot(d,normalize(vec3(.1,-.6,.8))))*1.5;gl_FragColor=vec4(c,1.);}'});
+ es.add(new THREE.Mesh(eg,em));const pm=new THREE.PMREMGenerator(renderer);scene.environment=pm.fromScene(es,.04).texture;pm.dispose();eg.dispose();em.dispose()}
+// stars
+{const n=Math.floor(2200*q),p=new Float32Array(n*3);for(let i=0;i<n;i++){p[i*3]=rr(-160,160);p[i*3+1]=rr(-90,90);p[i*3+2]=rr(-420,40)}
+ const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(p,3));
+ scene.add(new THREE.Points(g,new THREE.PointsMaterial({color:0xE6DDFF,size:.35,sizeAttenuation:true,fog:false,transparent:true,opacity:.85})))}
+// nebula sprites
+function glowTex(c1,c2){const c=document.createElement('canvas');c.width=c.height=128;const x=c.getContext('2d'),g=x.createRadialGradient(64,64,0,64,64,64);g.addColorStop(0,c1);g.addColorStop(.5,c2);g.addColorStop(1,'rgba(0,0,0,0)');x.fillStyle=g;x.fillRect(0,0,128,128);return new THREE.CanvasTexture(c)}
+{const tv=glowTex('rgba(115,82,200,.55)','rgba(115,82,200,.15)'),tl=glowTex('rgba(185,160,245,.4)','rgba(115,82,200,.1)'),to=glowTex('rgba(255,138,61,.35)','rgba(255,138,61,.08)');
+ for(let i=0;i<16*q+4;i++){const s=new THREE.Sprite(new THREE.SpriteMaterial({map:[tv,tl,tv,to][i%4],fog:false,depthWrite:false,blending:THREE.AdditiveBlending,opacity:rr(.5,1)}));
+  s.scale.setScalar(rr(60,140));s.position.set(rr(-90,90),rr(-40,40),-i*22-rr(0,20)-30);scene.add(s)}}
+// floating dust motes (world-fixed, so they give real parallax) and warm light shafts
+{const n=Math.floor(900*q),p=new Float32Array(n*3);for(let i=0;i<n;i++){p[i*3]=rr(-16,16);p[i*3+1]=rr(-10,10);p[i*3+2]=rr(-330,15)}
+ const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(p,3));
+ scene.add(new THREE.Points(g,new THREE.PointsMaterial({map:glowTex('rgba(255,255,255,1)','rgba(185,160,245,.3)'),color:0xcdb8ff,size:.28,transparent:true,opacity:.55,depthWrite:false,blending:THREE.AdditiveBlending})))}
+{const sc=document.createElement('canvas');sc.width=64;sc.height=256;const x=sc.getContext('2d'),g=x.createLinearGradient(0,0,64,0);g.addColorStop(0,'rgba(255,200,150,0)');g.addColorStop(.5,'rgba(255,190,130,.9)');g.addColorStop(1,'rgba(255,200,150,0)');x.fillStyle=g;x.fillRect(0,0,64,256);
+ const tx=new THREE.CanvasTexture(sc),pg=new THREE.PlaneGeometry(4,90);
+ for(let i=0;i<Math.floor(9*q)+2;i++){const m=new THREE.Mesh(pg,new THREE.MeshBasicMaterial({map:tx,transparent:true,opacity:rr(.04,.09),blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide,fog:false}));m.position.set(rr(-20,20),rr(2,12),-i*34-10);m.rotation.z=rr(-.7,-.3);m.scale.x=rr(.6,2);scene.add(m)}}
+// planet with custom GLSL
+const planet=new THREE.Mesh(new THREE.SphereGeometry(70,48,32),new THREE.ShaderMaterial({uniforms:{},
+ vertexShader:'varying vec3 n;varying vec3 p;void main(){n=normalize(normalMatrix*normal);p=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
+ fragmentShader:'varying vec3 n;varying vec3 p;void main(){float b=sin(p.y*.09+sin(p.x*.05)*2.)*.5+.5;vec3 c=mix(vec3(.13,.08,.25),vec3(.45,.32,.78),b);float d=clamp(dot(n,normalize(vec3(-.5,.6,.7)))*.5+.5,0.,1.);c*=(.35+d*.9)*(.88+.14*sin(p.x*.31)*sin(p.y*.27+1.)*sin(p.z*.33));float r=pow(1.-clamp(n.z,0.,1.),3.);c+=vec3(1.,.54,.24)*r*.45*d+vec3(.55,.45,1.)*r*.3;gl_FragColor=vec4(c,1.);}'}));
+planet.position.set(55,-50,-390);scene.add(planet);
+const ring=new THREE.Mesh(new THREE.TorusGeometry(110,1.2,6,96),new THREE.MeshBasicMaterial({color:0xB9A0F5,transparent:true,opacity:.35,fog:false}));ring.position.copy(planet.position);ring.rotation.set(1.2,.3,0);scene.add(ring);
+step('Environment lit');
+// instanced helper
+function inst(geo,mat,n,fn){const m=new THREE.InstancedMesh(geo,mat,n),d=new THREE.Object3D();for(let i=0;i<n;i++){d.rotation.set(0,0,0);fn(d,i,m);d.updateMatrix();m.setMatrixAt(i,d.matrix)}m.instanceMatrix.needsUpdate=true;scene.add(m);disposables.push(geo,mat);return m}
+const side=()=>(R()<.5?-1:1);
+// asteroids (faceted, displaced)
+{const g=new THREE.IcosahedronGeometry(1,1),pa=g.attributes.position;for(let i=0;i<pa.count;i++){const x=pa.getX(i),y=pa.getY(i),z=pa.getZ(i),k=.7+.55*hash(Math.round(x*5),Math.round(y*5),Math.round(z*5));pa.setXYZ(i,x*k,y*k*.85,z*k)}g.computeVertexNormals();
+ const pal=[0x4a3a7a,0x5d4a94,0x3a2d62,0x6b5aa0].map(col);
+ inst(g,(()=>{const c=document.createElement('canvas');c.width=c.height=256;const x=c.getContext('2d'),d=x.createImageData(256,256);for(let i=0;i<d.data.length;i+=4){const v=90+Math.random()*120|0;d.data[i]=d.data[i+1]=d.data[i+2]=v;d.data[i+3]=255}x.putImageData(d,0,0);x.globalAlpha=.5;for(let i=0;i<40;i++){x.fillStyle=i%2?'#000':'#fff';x.beginPath();x.arc(Math.random()*256,Math.random()*256,4+Math.random()*14,0,6.3);x.fill()}const t=new THREE.CanvasTexture(c);t.wrapS=t.wrapT=THREE.RepeatWrapping;disposables.push(t);return new THREE.MeshStandardMaterial({flatShading:true,roughness:.92,metalness:.05,envMapIntensity:.45,bumpMap:t,bumpScale:2.5,roughnessMap:t})})(),Math.floor(70*q),(d,i,m)=>{
+  const big=R()<.2,s=big?rr(4,9):rr(.6,3);d.position.set(side()*(big?rr(14,30):rr(4,18)),rr(-12,12),20-R()*350);d.rotation.set(R()*6,R()*6,R()*6);d.scale.setScalar(s);m.setColorAt(i,pal[i%4])})}
+let crys;
+// crystals
+{const g=new THREE.OctahedronGeometry(1,0);g.scale(.45,1.6,.45);
+ crys=inst(g,new THREE.MeshPhysicalMaterial({color:0x9a7be6,emissive:0x5a3aa8,emissiveIntensity:.7,roughness:.12,metalness:.1,clearcoat:1,clearcoatRoughness:.05,envMapIntensity:1.9,flatShading:true}),Math.floor(90*q),(d,i,m)=>{
+  const c=Math.floor(i/6);seed=1000+c*13;const cx=side()*rr(5,13),cy=rr(-6,7),cz=18-R()*350;seed=2000+i*7;
+  d.position.set(cx+rr(-1.5,1.5),cy+rr(-1,1),cz+rr(-1.5,1.5));d.rotation.set(rr(-.5,.5),R()*6,rr(-.6,.6));d.scale.setScalar(rr(.5,2.2));m.setColorAt(i,col(R()<.5?0x7352C8:0xB9A0F5))})}
+// orange energy fragments
+const frags=inst(new THREE.TetrahedronGeometry(.18,0),new THREE.MeshBasicMaterial({color:0xFFB36B}),Math.floor(140*q),(d)=>{d.position.set(rr(-14,14),rr(-8,8),20-R()*350);d.rotation.set(R()*6,R()*6,R()*6);d.scale.setScalar(rr(.5,1.6))});
+// threat landscape (z -55..-110)
+const markers=[];
+{const pts=[];for(let i=0;i<Math.floor(34*q)+8;i++)pts.push(new THREE.Vector3(rr(-18,18),rr(-9,9),rr(-112,-52)));
+ const lp=[];for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++)if(pts[i].distanceTo(pts[j])<13){lp.push(pts[i].x,pts[i].y,pts[i].z,pts[j].x,pts[j].y,pts[j].z)}
+ const lg=new THREE.BufferGeometry();lg.setAttribute('position',new THREE.Float32BufferAttribute(lp,3));scene.add(new THREE.LineSegments(lg,new THREE.LineBasicMaterial({color:0xB9A0F5,transparent:true,opacity:.28})));
+ inst(new THREE.OctahedronGeometry(.35,0),new THREE.MeshStandardMaterial({color:0x7352C8,emissive:0x3a2480,flatShading:true}),pts.length,(d,i)=>{d.position.copy(pts[i]);d.scale.setScalar(rr(.6,1.6))});
+ for(let i=0;i<7;i++){const m=new THREE.Mesh(new THREE.SphereGeometry(.28,12,10),new THREE.MeshBasicMaterial({color:0xFF8A3D}));m.position.copy(pts[i*3%pts.length]);m.userData.p=R()*6;scene.add(m);markers.push(m)}
+ [-70,-88,-106].forEach(z=>{const r=new THREE.Mesh(new THREE.TorusGeometry(11,.08,6,64),new THREE.MeshBasicMaterial({color:0xB9A0F5,transparent:true,opacity:.5}));r.position.z=z;scene.add(r)})}
+const scan=new THREE.Mesh(new THREE.TorusGeometry(1,.05,6,64),new THREE.MeshBasicMaterial({color:0xFF8A3D,transparent:true,opacity:.7}));scan.position.z=-80;scene.add(scan);
+{const Zs=[-32,-72,-112,-152,-200,-262],cn=Zs.length*7,cg=new THREE.OctahedronGeometry(1,0);cg.scale(.42,1.7,.42);
+const cm2=new THREE.MeshPhysicalMaterial({color:0xffffff,emissive:0x4a2f8f,emissiveIntensity:.55,roughness:.15,clearcoat:1,envMapIntensity:1.6,flatShading:true});
+const ci=inst(cg,cm2,cn,(d,i,m)=>{const z=Zs[i/7|0],sd=(i/7|0)%2?1:-1,j=i%7,big=j===0;d.position.set(sd*(7.5+Math.abs(j-3)*.9)+rr(-.4,.4),-3+big*1.5-Math.abs(j-3)*.3,z+rr(-2,2));d.rotation.set(rr(-.2,.2),R()*6,sd*(.15+(j-3)*.12));d.scale.setScalar(big?rr(4.5,6):rr(1.4,3.2));m.setColorAt(i,col(j%3?0xB9A0F5:0xE4D9FF))});
+const sg2=new THREE.IcosahedronGeometry(1,1),sp2=sg2.attributes.position;for(let i=0;i<sp2.count;i++){const y=sp2.getY(i);sp2.setXYZ(i,sp2.getX(i)*(1+.2*hash(i,1,2)),y<0?y*1.8:y*.35,sp2.getZ(i)*(1+.2*hash(i,3,4)))}sg2.computeVertexNormals();
+inst(sg2,new THREE.MeshStandardMaterial({color:0x5a45a0,flatShading:true,roughness:.9,envMapIntensity:.6}),Zs.length,(d,i)=>{d.position.set((i%2?1:-1)*8,-5.2,Zs[i]);d.scale.set(6,2.4,4.5);d.rotation.y=R()*6})}
+step('Asteroids, crystals and threat region built');
+// ---------- capsule ----------
+const cap=new THREE.Group(),capIn=new THREE.Group();cap.add(capIn);
+// procedural panel-seam / rivet map drives bump and roughness for believable hull plating
+const pc=document.createElement('canvas');pc.width=pc.height=512;{const x=pc.getContext('2d');x.fillStyle='#8a8a8a';x.fillRect(0,0,512,512);x.strokeStyle='#1c1c1c';x.lineWidth=3;for(let i=0;i<=8;i++){x.beginPath();x.moveTo(i*64,0);x.lineTo(i*64,512);x.stroke()}for(let i=0;i<=4;i++){x.beginPath();x.moveTo(0,i*128);x.lineTo(512,i*128);x.stroke()}x.fillStyle='#2e2e2e';for(let i=0;i<80;i++){x.beginPath();x.arc(rr(0,512),rr(0,512),rr(1,2.6),0,6.3);x.fill()}}
+const pt=new THREE.CanvasTexture(pc);pt.wrapS=pt.wrapT=THREE.RepeatWrapping;pt.anisotropy=4;
+const metal=new THREE.MeshStandardMaterial({color:0xcfc6e6,metalness:.92,roughness:.34,roughnessMap:pt,bumpMap:pt,bumpScale:1.6,envMapIntensity:1.4}),ceramic=new THREE.MeshPhysicalMaterial({color:0xf3effa,metalness:.05,roughness:.3,clearcoat:1,clearcoatRoughness:.12,envMapIntensity:1});
+const prof=[[0,-1.1],[.5,-1.02],[.88,-.62],[1.04,0],[.96,.6],[.62,1],[.26,1.17],[0,1.22]].map(p=>new THREE.Vector2(p[0],p[1]));
+const pearl=new THREE.MeshPhysicalMaterial({color:0xe9e0ff,metalness:.08,roughness:.38,clearcoat:.8,clearcoatRoughness:.2,envMapIntensity:.9});
+const body=new THREE.Mesh(new THREE.LatheGeometry(prof,48),pearl);body.rotation.x=-Math.PI/2;capIn.add(body);
+const band=new THREE.Mesh(new THREE.TorusGeometry(1.03,.045,10,56),new THREE.MeshStandardMaterial({color:0x9276DE,roughness:.4,metalness:.2}));band.position.z=.4;capIn.add(band);
+const glass=new THREE.Mesh(new THREE.SphereGeometry(.8,32,16,0,Math.PI*2,0,1.25),new THREE.MeshPhysicalMaterial({color:0x2a1b55,emissive:0x6a4fc0,emissiveIntensity:.35,metalness:.2,roughness:.04,clearcoat:1,envMapIntensity:2.2,transparent:true,opacity:.9}));glass.scale.set(1.25,.9,1);glass.position.set(0,.3,-.7);glass.rotation.x=-.5;capIn.add(glass);
+const navL=new THREE.Mesh(new THREE.SphereGeometry(.05,10,8),new THREE.MeshBasicMaterial({color:0xFFB36B}));navL.position.set(0,-.28,-1.05);capIn.add(navL);
+const glows=[];const eng=new THREE.PointLight(0xB9A0F5,.9,8);eng.position.set(0,-.2,1.6);capIn.add(eng);
+capIn.scale.setScalar(1.2);scene.add(cap);
+// ---------- cockpit ----------
+const cock=new THREE.Group(),cm=[];
+const dm=c=>{const m=new THREE.MeshStandardMaterial({color:c,metalness:.7,roughness:.4,transparent:true,side:THREE.DoubleSide});cm.push(m);return m};
+const box=(w,h,d,x,y,z,m,rx=0,rz=0)=>{const b=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);b.position.set(x,y,z);b.rotation.set(rx,0,rz);cock.add(b);return b};
+const dk=dm(0x1a1236),fr=dm(0x2c1f55);
+box(2.4,.14,.7,0,-.4,-.55,dk,.35);{const sh=new THREE.Mesh(new THREE.CylinderGeometry(1.7,1.7,2.4,40,1,true),fr);sh.rotation.x=Math.PI/2;sh.scale.x=1.9;sh.position.z=-.1;cock.add(sh);
+const bk=new THREE.Mesh(new THREE.RingGeometry(.62,1.75,48),dk);bk.scale.x=1.9;bk.position.z=-1.1;cock.add(bk);
+const tr=new THREE.Mesh(new THREE.TorusGeometry(.62,.03,8,64),new THREE.MeshBasicMaterial({color:0xB9A0F5,transparent:true}));tr.scale.x=1.9;tr.position.z=-1.09;cock.add(tr);window._trim=tr.material;
+for(const x of[-.9,.9]){const m=new THREE.Mesh(new THREE.BoxGeometry(.05,1.3,.05),fr);m.position.set(x,0,-1.08);cock.add(m)}}
+const dotM=[window._trim];for(let i=-3;i<=3;i++){const d=new THREE.Mesh(new THREE.SphereGeometry(.025,8,6),new THREE.MeshBasicMaterial({color:i%2?0xFF8A3D:0xB9A0F5,transparent:true}));d.position.set(i*.2,-.33,-.5);cock.add(d);dotM.push(d.material)}
+const holo=new THREE.Mesh(new THREE.TorusGeometry(.16,.008,6,40),new THREE.MeshBasicMaterial({color:0xB9A0F5,transparent:true}));holo.position.set(.45,-.12,-.6);cock.add(holo);dotM.push(holo.material);
+const holo2=new THREE.Mesh(new THREE.OctahedronGeometry(.07,0),new THREE.MeshBasicMaterial({color:0xFF8A3D,wireframe:true,transparent:true}));holo2.position.copy(holo.position);cock.add(holo2);dotM.push(holo2.material);
+cock.visible=false;scene.add(cock);
+step('Capsule and cockpit assembled');
+// engine exhaust trail: ring buffer of world-space embers, faded through vertex colour under additive blending
+const TN=Math.floor(90*q)+20,tp=new Float32Array(TN*3),tc=new Float32Array(TN*3),tv=new Float32Array(TN*3),ta=new Float32Array(TN),V2=new THREE.Vector3();let th=0;
+const tg=new THREE.BufferGeometry();tg.setAttribute('position',new THREE.BufferAttribute(tp,3));tg.setAttribute('color',new THREE.BufferAttribute(tc,3));
+const trail=new THREE.Points(tg,new THREE.PointsMaterial({map:glowTex('rgba(255,255,255,1)','rgba(255,160,90,.3)'),vertexColors:true,size:.55,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,fog:false}));trail.frustumCulled=false;scene.add(trail);
+// ---------- keyframes ----------
+const Z=[-140,-170,-200,-230,-262];
+const K=[
+{c:[0,0,0],r:[.45,.05],e:[0,.4,9],l:[0,0,0]},
+{c:[-1.5,.6,-32],r:[-.3,-.15],e:[4,1.5,-22],l:[-1.5,.4,-34]},
+{c:[2,-.4,-72],r:[.5,.2],e:[-5,1.8,-61],l:[2,-.2,-74]},
+{c:[0,0,-112],r:[.2,0],e:[2.6,1,-107],l:[0,.2,-112]},
+...Z.map(z=>({c:[0,0,z],r:[0,0],e:[0,.1,z+1],l:[0,.1,z-5]})),
+{c:[0,0,-300],r:[-.5,.1],e:[7,2.5,-283],l:[0,0,-300]}];
+const lerpA=(a,b,t)=>a.map((v,i)=>v+(b[i]-v)*t),sm=t=>t*t*(3-2*t);
+const pn={x:0,y:0,sx:0,sy:0};let vel=0,lastT=0,lx=0;
+addEventListener('pointermove',e=>{if(e.pointerType==='touch')return;pn.x=e.clientX/innerWidth*2-1;pn.y=e.clientY/innerHeight*2-1});
+const intro={v:reduce?1:0};
+const V=new THREE.Vector3(),L=new THREE.Vector3(),C=new THREE.Vector3(),E=new THREE.Euler(),flash=$('#flash'),veil=$('#veil');
+let t0=performance.now();
+let slow=0,fcount=0,auto=true;
+function frame(now){
+ const t=(now-t0)/1000;
+ const dt=Math.min(.05,Math.max(.001,t-lastT));lastT=t;if(auto&&!lowQ&&t>4){fcount++;slow+=dt>.034?1:0;if(fcount>=90){if(slow>35){lowQ=true;auto=false;renderer.setPixelRatio(dpr());const qb=$('#qbtn');qb.textContent='QUALITY: LOW (AUTO)';qb.setAttribute('aria-pressed','true')}fcount=0;slow=0}}const pv=cur;cur+=(target-cur)*(reduce?1:1-Math.exp(-dt*3.4));vel+=((cur-pv)/dt-vel)*(1-Math.exp(-dt*5));const sp=reduce?0:Math.min(1,Math.abs(vel)/1.1);
+ const i=Math.min(N-2,Math.floor(cur)),s=cur-i,k0=K[Math.max(0,i-1)],a=K[i],b=K[i+1],k3=K[Math.min(N-1,i+2)];
+ const cr=(p0,p1,p2,p3,u)=>p1.map((_,j)=>.5*(2*p1[j]+(-p0[j]+p2[j])*u+(2*p0[j]-5*p1[j]+4*p2[j]-p3[j])*u*u+(-p0[j]+3*p1[j]-3*p2[j]+p3[j])*u*u*u));
+ const c=cr(k0.c,a.c,b.c,k3.c,s),r=cr(k0.r,a.r,b.r,k3.r,s),e=cr(k0.e,a.e,b.e,k3.e,s),l=cr(k0.l,a.l,b.l,k3.l,s);
+ pn.sx+=(pn.x-pn.sx)*.05;pn.sy+=(pn.y-pn.sy)*.05;const px=reduce?0:pn.sx,py=reduce?0:pn.sy;
+ const bob=reduce?0:Math.sin(t*.8)*.12;
+ cap.position.set(c[0],c[1]+bob,c[2]);const lat=Math.max(-.4,Math.min(.4,(c[0]-lx)/dt*.04));lx=c[0];cap.rotation.set(py*.08+sp*.08,r[0]-px*.15,r[1]-lat);
+ let f=cur<3?0:cur<4?sm(cur-3):cur<8?1:cur<9?1-sm(cur-8):0;
+ cock.position.copy(cap.position);cock.rotation.copy(cap.rotation);cock.visible=f>.02;
+ cm.forEach(m=>m.opacity=f);dotM.forEach(m=>m.opacity=f);
+ capIn.visible=f<.85;
+ const ob=sm(Math.min(1,Math.max(0,(cur-8.3)/.7)));const ex=[e[0]+px*1.2+ob*Math.sin(t*.12)*5,e[1]-py*.8+ob*Math.cos(t*.1)*1.2,e[2]+(1-intro.v)*12+ob*(Math.cos(t*.12)-1)*3];
+ E.copy(cap.rotation);
+ V.set(px*.05,.1-py*.03,.35).applyEuler(E).add(cap.position);
+ L.set(0,.1,-4).applyEuler(E).add(cap.position);
+ cam.position.set(ex[0],ex[1],ex[2]).lerp(V,f);
+ if(!reduce){cam.position.x+=Math.sin(t*.6)*.03+Math.sin(t*47)*.01*sp*(.3+f);cam.position.y+=Math.cos(t*.5)*.02+Math.sin(t*37)*.008*sp*(.3+f)}
+ C.set(l[0],l[1],l[2]).lerp(L,f);cam.lookAt(C);const fv=55+f*9+sp*7;if(Math.abs(cam.fov-fv)>.01){cam.fov=fv;cam.updateProjectionMatrix()}
+ pl.position.set(c[0],c[1]+2,c[2]+3);
+ if(!reduce){for(let s=0;s<(sp>.15?2:1);s++){if(R()<.2){const i=th++%TN;V2.set(rr(-.5,.5),rr(-.35,.2),3.2).applyEuler(cap.rotation).add(cap.position);tp[i*3]=V2.x;tp[i*3+1]=V2.y;tp[i*3+2]=V2.z;V2.set(rr(-.3,.3),rr(-.3,.3),1+sp*5+rr(0,1)).applyEuler(cap.rotation);tv[i*3]=V2.x;tv[i*3+1]=V2.y;tv[i*3+2]=V2.z;ta[i]=1}}
+  for(let i=0;i<TN;i++){ta[i]=Math.max(0,ta[i]-dt*.8);tp[i*3]+=tv[i*3]*dt;tp[i*3+1]+=tv[i*3+1]*dt;tp[i*3+2]+=tv[i*3+2]*dt;const a2=ta[i]*ta[i];tc[i*3]=a2*.55;tc[i*3+1]=a2*.45;tc[i*3+2]=a2*.85}
+  tg.attributes.position.needsUpdate=true;tg.attributes.color.needsUpdate=true}trail.visible=f<.85;
+ glows.forEach((g,k)=>{0});eng.intensity=.9+sp*.8;
+ markers.forEach(m=>m.scale.setScalar(1+.5*Math.sin(t*3+m.userData.p)));
+ const sw=(t*.18)%1;scan.scale.setScalar(2+sw*14);scan.material.opacity=.7*(1-sw);
+ frags.rotation.y=reduce?0:t*.01;holo.rotation.set(t*.7,t*.4,0);holo2.rotation.y=t;
+ ring.rotation.z=t*.01;planet.rotation.y=t*.006;
+ scene.fog.density=.012+(1-intro.v)*.035;crys.material.emissiveIntensity=.7+.6*sp+.12*Math.sin(t*1.5);
+ veil.style.opacity=Math.max(0,1-intro.v*1.4);
+ flash.style.opacity=(f>0&&f<1)?Math.sin(f*Math.PI)*.9:0;
+ renderer.render(scene,cam);
+}
+function start(){renderer.setAnimationLoop(frame)}
+document.addEventListener('visibilitychange',()=>renderer.setAnimationLoop(document.hidden?null:frame));
+addEventListener('resize',()=>{renderer.setPixelRatio(dpr());renderer.setSize(innerWidth,innerHeight);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix()});
+addEventListener('pagehide',()=>{renderer.setAnimationLoop(null);disposables.forEach(d=>d.dispose());scene.traverse(o=>{o.geometry&&o.geometry.dispose();const m=o.material;m&&(Array.isArray(m)?m:[m]).forEach(x=>{x.map&&x.map.dispose();x.dispose()})});renderer.dispose()});
+$('#qbtn').onclick=e=>{auto=false;lowQ=!lowQ;e.target.textContent='QUALITY: '+(lowQ?'LOW':'HIGH');e.target.setAttribute('aria-pressed',lowQ);renderer.setPixelRatio(dpr())};
+frame(performance.now());step('Revealing the capsule');start();
+setTimeout(()=>{endLoader();if(hasG&&!reduce){gsap.to(intro,{v:1,duration:3.4,ease:'power2.out'});gsap.from('.hero .r',{y:30,opacity:0,stagger:.35,duration:1.3,delay:1.4,ease:'power3.out'})}},350);
+})();
+</script>
+</body>
+</html>
