@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>BibekSec — Build. Break. Secure.</title>
-<meta name="description" content="BibekSec: an independent cybersecurity journey by Bibek Tamata."><meta name="theme-color" content="#0B0914"><meta property="og:title" content="BibekSec — Build. Break. Secure."><meta property="og:description" content="An independent cybersecurity journey focused on understanding systems, discovering vulnerabilities and building security-focused technology.">
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<meta name="description" content="BibekSec: an independent cybersecurity journey by Bibek Tamata."><meta name="theme-color" content="#0B0914"><meta property="og:type" content="website"><meta name="twitter:card" content="summary"><meta property="og:title" content="BibekSec — Build. Break. Secure."><meta property="og:description" content="An independent cybersecurity journey focused on understanding systems, discovering vulnerabilities and building security-focused technology.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2321143F'/%3E%3Ctext x='16' y='22' font-size='17' font-weight='700' text-anchor='middle' fill='%23FF8A3D' font-family='sans-serif'%3EB%3C/text%3E%3C/svg%3E"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Bibek Tamata", "alternateName": "BibekSec", "email": "bibek.security@gmail.com", "jobTitle": "Cybersecurity learner", "sameAs": ["https://github.com/bibeksec", "https://x.com/bibek_sec", "https://youtube.com/@BibekSec", "https://tryhackme.com/p/bibektamata012", "https://app.hackthebox.com/profile/3290646", "https://leetcode.com/u/NwLnFoZCvI/"]}</script><link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{--p:#21143F;--dp:#100C22;--v:#7352C8;--l:#B9A0F5;--o:#FF8A3D;--w:#FFB36B;--bg:#0B0914;--t:#F5F3FA;--m:#A9A2BA;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
@@ -32,7 +32,7 @@ ul.chips{list-style:none;margin:.6rem 0 0;padding:0;display:flex;flex-wrap:wrap;
 .btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:2rem}
 .btn{font:700 .78rem Manrope;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--t);padding:1rem 1.6rem;border:1px solid var(--l);border-radius:99px;background:transparent;cursor:pointer;transition:.3s;position:relative;overflow:hidden}
 .btn.pri{background:var(--o);border-color:var(--o);color:#1a0d05}
-.btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px -8px var(--o)}
+.btn:hover{transform:translate(var(--bx,0px),calc(var(--by,0px) - 3px));box-shadow:0 10px 30px -8px var(--o)}
 .btn:not(.pri):hover{background:rgba(185,160,245,.14)}
 header{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:1rem clamp(1.2rem,4vw,3rem);background:linear-gradient(var(--bg),transparent)}
 .brand{font:600 1rem Unbounded;letter-spacing:.2em;color:var(--t);text-decoration:none}.brand b{color:var(--o)}
@@ -86,12 +86,36 @@ footer{position:relative;z-index:10;padding:2rem clamp(1.2rem,6vw,6rem) 3rem;col
 .flash{position:fixed;inset:0;z-index:4;pointer-events:none;box-shadow:inset 0 0 0 0 transparent;background:radial-gradient(ellipse at center,transparent 55%,rgba(11,9,20,.75));opacity:0}
 @media(max-width:860px){nav{position:fixed;inset:0;background:rgba(11,9,20,.96);display:none;place-items:center;z-index:55}nav.open{display:grid}nav ul{flex-direction:column;text-align:center;gap:2rem}nav a{font-size:.95rem}#burger{display:block;position:relative;z-index:56}#dots{display:none}.pan{backdrop-filter:none;background:rgba(21,14,40,.82)}section{padding-top:6rem;align-items:flex-start}.right{margin-left:0}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+#prog{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;height:2px;z-index:70;background:linear-gradient(90deg,var(--v),var(--o));transform:scaleX(0);transform-origin:0 50%;box-shadow:0 0 12px var(--o)}
+#cur{position:fixed;left:0;top:0;width:420px;height:420px;margin:-210px 0 0 -210px;border-radius:50%;pointer-events:none;z-index:6;background:radial-gradient(closest-side,rgba(115,82,200,.22),rgba(255,138,61,.05) 60%,transparent);mix-blend-mode:screen;opacity:0;transition:opacity .6s;will-change:transform}
+#cur.on{opacity:1}
+.pan{position:relative;overflow:hidden}
+.pan::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s;background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%),rgba(185,160,245,.16),transparent 70%)}
+.pan:hover::after{opacity:1}
+.btn{transform:translate(var(--bx,0px),var(--by,0px))}
+.btn.pri::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);animation:sh 3.6s 2.5s infinite}
+@keyframes sh{40%,100%{transform:translateX(120%)}}
+h1{background-image:linear-gradient(100deg,#fff 20%,#B9A0F5 42%,#fff 58%,#B9A0F5 80%);background-size:200% 100%;animation:shine 9s linear infinite}
+@keyframes shine{to{background-position:200% 0}}
+.links a::after{content:"↗";position:absolute;right:1rem;top:.9rem;color:var(--o);opacity:0;transform:translate(-4px,4px);transition:.3s}
+.links a{position:relative;text-align:left}.links a:hover::after{opacity:1;transform:none}.links a:hover{box-shadow:0 14px 34px -14px var(--o)}
+.links .pend{display:block;text-align:left;padding:.9rem 1.2rem;border:1px dashed rgba(185,160,245,.25);border-radius:12px;color:var(--m)}
+#s9 .eyebrow{display:flex;justify-content:center}
+.conn{grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr))}.conn .eyebrow{display:block!important;margin-bottom:.6rem}
+.rows{display:grid;gap:.55rem;margin-top:1rem}
+.row{display:grid;grid-template-columns:2.5rem 1fr auto;column-gap:.9rem;align-items:center;padding:.7rem .8rem;border:1px solid rgba(185,160,245,.2);border-radius:12px;text-decoration:none;color:var(--t);background:rgba(33,20,63,.4);transition:.3s}
+.row:hover{border-color:var(--o);transform:translateX(5px);background:rgba(255,138,61,.07);box-shadow:0 10px 28px -14px var(--o)}
+.row .ic{grid-row:span 2;width:2.5rem;height:2.5rem;display:grid;place-items:center;border-radius:10px;font:600 .68rem Unbounded;background:linear-gradient(135deg,var(--v),#3a2480);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
+.row .pf{font:700 .92rem Manrope}.row .hd{grid-column:2;color:var(--m);font-size:.82rem;overflow-wrap:anywhere}
+.row i{grid-row:span 2;grid-column:3;font-style:normal;color:var(--o);opacity:.35;transition:.3s}.row:hover i{opacity:1;transform:translate(2px,-2px)}
+.row.pend{border-style:dashed;color:var(--m)}.row.pend .ic{background:rgba(115,82,200,.25)}
+.tag{grid-row:span 2;grid-column:3;font:700 .58rem Manrope;letter-spacing:.16em;text-transform:uppercase;font-style:normal;color:var(--w);border:1px solid rgba(255,138,61,.45);border-radius:99px;padding:.15rem .55rem;white-space:nowrap}
 </style>
 </head>
 <body>
 <a class="skip" href="#s1">Skip to content</a>
 <div id="loader" role="status" aria-live="polite"><div><p class="brand">BIBEK<b>SEC</b></p><div id="bar"><i></i></div><p id="step">Initializing the universe</p></div></div>
-<canvas id="gl" aria-hidden="true"></canvas><div class="flash" id="flash"></div><div id="veil"></div>
+<canvas id="gl" aria-hidden="true"></canvas><div class="flash" id="flash"></div><div id="veil"></div><div id="prog"></div><div id="cur"></div>
 <header>
 <a class="brand" href="#s0" aria-label="BibekSec home">BIBEK<b>SEC</b></a>
 <button id="qbtn" aria-pressed="false" aria-label="Toggle rendering quality">QUALITY: HIGH</button>
@@ -167,15 +191,9 @@ footer{position:relative;z-index:10;padding:2rem clamp(1.2rem,6vw,6rem) 3rem;col
 <h2 class="rv" style="font-size:clamp(1.8rem,5.5vw,4.4rem)">THE JOURNEY DOESN’T END HERE.</h2>
 <p class="rv muted narrow">Always exploring. Always learning. Always building.</p>
 <p class="rv big" style="letter-spacing:.15em;margin-top:1rem">BIBEKSEC<br><span style="font-size:.5em;color:var(--l)">BUILD. BREAK. SECURE.</span></p>
-<div class="links rv" style="width:100%;max-width:900px;margin-top:2rem">
-<a href="https://github.com/bibeksec" rel="noopener">GitHub<small>github.com/bibeksec</small></a>
-<a href="https://tryhackme.com/p/bibektamata012" rel="noopener">TryHackMe<small>bibektamata012</small></a>
-<a href="https://app.hackthebox.com/profile/3290646" rel="noopener">Hack The Box<small>profile 3290646</small></a>
-<a href="https://youtube.com/@BibekSec" rel="noopener">YouTube<small>@BibekSec</small></a>
-<a href="https://leetcode.com/u/NwLnFoZCvI/" rel="noopener">LeetCode<small>NwLnFoZCvI</small></a>
-<span class="muted" style="display:block;padding:.9rem 1.2rem">Email<small style="display:block">Not yet added</small></span></div></div></section>
+<div class="grid rv conn" style="width:100%;max-width:1000px;margin-top:2.4rem;text-align:left"><div class="pan"><p class="eyebrow">Connect</p><h3>Social &amp; professional</h3><div class="rows"><a class="row" href="https://github.com/bibeksec" target="_blank" rel="noopener noreferrer"><b class="ic">GH</b><span class="pf">GitHub</span><span class="hd">github.com/bibeksec</span><i>↗</i></a><div class="row pend"><b class="ic">in</b><span class="pf">LinkedIn</span><span class="hd">Bibek Tamata</span><em class="tag">Link pending</em></div><a class="row" href="https://x.com/bibek_sec" target="_blank" rel="noopener noreferrer"><b class="ic">X</b><span class="pf">X (Twitter)</span><span class="hd">@bibek_sec</span><i>↗</i></a><a class="row" href="https://youtube.com/@BibekSec" target="_blank" rel="noopener noreferrer"><b class="ic">YT</b><span class="pf">YouTube</span><span class="hd">@BibekSec</span><i>↗</i></a><a class="row" href="mailto:bibek.security@gmail.com"><b class="ic">@</b><span class="pf">Email</span><span class="hd">bibek.security@gmail.com</span><i>↗</i></a></div></div><div class="pan"><p class="eyebrow">Learn &amp; compete</p><h3>Cybersecurity &amp; learning profiles</h3><div class="rows"><a class="row" href="https://tryhackme.com/p/bibektamata012" target="_blank" rel="noopener noreferrer"><b class="ic">TH</b><span class="pf">TryHackMe</span><span class="hd">bibektamata012</span><i>↗</i></a><a class="row" href="https://app.hackthebox.com/profile/3290646" target="_blank" rel="noopener noreferrer"><b class="ic">HB</b><span class="pf">Hack The Box</span><span class="hd">Profile #3290646</span><i>↗</i></a><a class="row" href="https://leetcode.com/u/NwLnFoZCvI/" target="_blank" rel="noopener noreferrer"><b class="ic">LC</b><span class="pf">LeetCode</span><span class="hd">NwLnFoZCvI</span><i>↗</i></a><div class="row pend"><b class="ic">PS</b><span class="pf">PortSwigger Academy</span><span class="hd">Bibes Tamata</span><em class="tag">Link pending</em></div></div></div></div><div class="btns rv" style="justify-content:center"><a class="btn pri" href="mailto:bibek.security@gmail.com">Email Bibek</a><a class="btn" href="#s0" data-go="0">Back to the beginning</a></div></div></section>
 </main>
-<footer><strong>BIBEKSEC © 2026</strong> — Designed around curiosity, exploration and security. <button type="button" onclick="scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})" style="all:unset;cursor:pointer;color:var(--w);margin-left:1rem;padding:.5rem;font-weight:700">↑ Back to top</button></footer>
+<footer><strong>BIBEKSEC © 2026</strong> — Designed around curiosity, exploration and security. <a href="mailto:bibek.security@gmail.com">bibek.security@gmail.com</a> <button type="button" onclick="scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})" style="all:unset;cursor:pointer;color:var(--w);margin-left:1rem;padding:.5rem;font-weight:700">↑ Back to top</button></footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -194,7 +212,7 @@ const dots=$('#dots');secs.forEach((s,i)=>{if(i&&SQ[i]===SQ[i-1])return;const b=
 const navA=$$('nav a'),dotB=$$('#dots button'),hud=$('#hud');
 let cur=0,target=0,idx=0;
 function update(){
- const y=scrollY+innerHeight*.5;let k=0;
+ const pg=$('#prog');if(pg)pg.style.transform='scaleX('+Math.min(1,scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight))+')';const y=scrollY+innerHeight*.5;let k=0;
  for(let i=0;i<N;i++){if(secs[i].offsetTop<=y)k=i}
  const s=secs[k],f=Math.min(1,Math.max(0,(y-s.offsetTop)/s.offsetHeight));
  target=Math.min(N-1,Math.max(0,k+f-.5));
@@ -202,12 +220,15 @@ function update(){
 }
 if(hasG)ScrollTrigger.create({trigger:'main',start:'top top',end:'bottom bottom',onUpdate:update});else addEventListener('scroll',update,{passive:true});
 addEventListener('resize',update);update();
-if(hasG&&!reduce){$$('.rv').forEach(el=>gsap.from(el,{scrollTrigger:{trigger:el,start:'top 88%'},y:50,opacity:0,duration:1.1,ease:'power3.out',clearProps:'transform,opacity'}));
+if(hasG&&!reduce){gsap.set('.chips li',{opacity:0,y:14});ScrollTrigger.batch('.chips li',{start:'top 94%',once:true,onEnter:b=>gsap.to(b,{opacity:1,y:0,stagger:.045,duration:.7,ease:'power3.out',overwrite:true})});$$('.rv').forEach(el=>gsap.from(el,{scrollTrigger:{trigger:el,start:'top 88%'},y:50,opacity:0,scale:.98,duration:1.1,ease:'power3.out',clearProps:'transform,opacity'}));
 gsap.to('.hero',{opacity:0,y:-80,ease:'none',scrollTrigger:{trigger:'#s0',start:'top top',end:'60% top',scrub:true}});
 gsap.to('.scroll',{opacity:0,ease:'none',scrollTrigger:{trigger:'#s0',start:'top top',end:'20% top',scrub:true}});
 $$('section:not(#s0) h2:not(.rv)').forEach(el=>gsap.fromTo(el,{yPercent:8},{yPercent:-8,ease:'none',scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:.6}}))}
 $$('.card').forEach(c=>c.addEventListener('pointermove',e=>{if(reduce)return;const r=c.getBoundingClientRect();c.style.setProperty('--ry',((e.clientX-r.left)/r.width-.5)*8+'deg');c.style.setProperty('--rx',-((e.clientY-r.top)/r.height-.5)*8+'deg')}));
 $$('.card').forEach(c=>c.addEventListener('pointerleave',()=>{c.style.setProperty('--ry','0deg');c.style.setProperty('--rx','0deg')}));
+$$('.pan').forEach(p=>p.addEventListener('pointermove',e=>{const r=p.getBoundingClientRect();p.style.setProperty('--mx',e.clientX-r.left+'px');p.style.setProperty('--my',e.clientY-r.top+'px')}));
+if(!reduce&&matchMedia('(hover:hover)').matches){const cu=$('#cur');let cx=0,cy=0,tx=0,ty=0;addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY;cu.classList.add('on')});(function lp(){cx+=(tx-cx)*.12;cy+=(ty-cy)*.12;cu.style.transform='translate('+cx+'px,'+cy+'px)';requestAnimationFrame(lp)})();
+ $$('.btn').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.setProperty('--bx',(e.clientX-r.left-r.width/2)*.25+'px');b.style.setProperty('--by',(e.clientY-r.top-r.height/2)*.35+'px')});b.addEventListener('pointerleave',()=>{b.style.setProperty('--bx','0px');b.style.setProperty('--by','0px')})})}
 // ---------- loader: progress = real build steps completed ----------
 const loader=$('#loader'),bar=$('#bar i'),stepEl=$('#step');let done=0;const TOTAL=5;
 const step=t=>{done++;bar.style.width=(done/TOTAL*100)+'%';stepEl.textContent=t};
@@ -215,9 +236,9 @@ function endLoader(){loader.style.opacity=0;setTimeout(()=>loader.remove(),1000)
 // ---------- WebGL ----------
 let renderer;
 try{const t=document.createElement('canvas');if(!window.THREE||!(t.getContext('webgl')||t.getContext('webgl2')))throw 0;
- renderer=new THREE.WebGLRenderer({canvas:$('#gl'),antialias:!small,powerPreference:'low-power'})}catch(e){document.documentElement.classList.add('no-gl')}
+ renderer=new THREE.WebGLRenderer({canvas:$('#gl'),antialias:!small,powerPreference:'high-performance'})}catch(e){document.documentElement.classList.add('no-gl')}
 if(!renderer){$('#veil').remove();endLoader();if(hasG&&!reduce)gsap.from('.hero .r',{y:30,opacity:0,stagger:.2,duration:1});return}
-let lowQ=false;const dpr=()=>lowQ?.75:Math.min(devicePixelRatio,small?1:1.5);
+let lowQ=false;const dpr=()=>lowQ?.75:Math.min(devicePixelRatio,small?1:2);
 renderer.setPixelRatio(dpr());renderer.setSize(innerWidth,innerHeight);
 renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;
 const scene=new THREE.Scene(),BG=0x0B0914;scene.background=new THREE.Color(BG);scene.fog=new THREE.FogExp2(0x2a1a55,.011);
@@ -236,9 +257,9 @@ const pl=new THREE.PointLight(0xB9A0F5,2.2,40);scene.add(pl);
 {const es=new THREE.Scene(),eg=new THREE.SphereGeometry(50,32,16),em=new THREE.ShaderMaterial({side:THREE.BackSide,vertexShader:'varying vec3 p;void main(){p=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:'varying vec3 p;void main(){vec3 d=normalize(p);vec3 c=mix(vec3(.04,.025,.1),vec3(.42,.3,.78),smoothstep(-.5,1.,d.y));c+=vec3(1.,.7,.42)*smoothstep(.86,.985,dot(d,normalize(vec3(-.6,.5,.6))))*7.;c+=vec3(.6,.5,1.)*smoothstep(.9,.99,dot(d,normalize(vec3(.7,.3,-.5))))*3.5;c+=vec3(1.,.54,.24)*smoothstep(.93,.99,dot(d,normalize(vec3(.1,-.6,.8))))*1.5;gl_FragColor=vec4(c,1.);}'});
  es.add(new THREE.Mesh(eg,em));const pm=new THREE.PMREMGenerator(renderer);scene.environment=pm.fromScene(es,.04).texture;pm.dispose();eg.dispose();em.dispose()}
 // stars
-{const n=Math.floor(2200*q),p=new Float32Array(n*3);for(let i=0;i<n;i++){p[i*3]=rr(-160,160);p[i*3+1]=rr(-90,90);p[i*3+2]=rr(-420,40)}
+let starMat;{const n=Math.floor(3200*q),p=new Float32Array(n*3);for(let i=0;i<n;i++){p[i*3]=rr(-160,160);p[i*3+1]=rr(-90,90);p[i*3+2]=rr(-420,40)}
  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(p,3));
- scene.add(new THREE.Points(g,new THREE.PointsMaterial({color:0xE6DDFF,size:.35,sizeAttenuation:true,fog:false,transparent:true,opacity:.85})))}
+ scene.add(new THREE.Points(g,starMat=new THREE.PointsMaterial({color:0xE6DDFF,size:.35,sizeAttenuation:true,fog:false,transparent:true,opacity:.85})))}
 // nebula sprites
 function glowTex(c1,c2){const c=document.createElement('canvas');c.width=c.height=128;const x=c.getContext('2d'),g=x.createRadialGradient(64,64,0,64,64,64);g.addColorStop(0,c1);g.addColorStop(.5,c2);g.addColorStop(1,'rgba(0,0,0,0)');x.fillStyle=g;x.fillRect(0,0,128,128);return new THREE.CanvasTexture(c)}
 {const tv=glowTex('rgba(115,82,200,.55)','rgba(115,82,200,.15)'),tl=glowTex('rgba(185,160,245,.4)','rgba(115,82,200,.1)'),to=glowTex('rgba(255,138,61,.35)','rgba(255,138,61,.08)');
@@ -321,6 +342,14 @@ step('Capsule and cockpit assembled');
 const TN=Math.floor(90*q)+20,tp=new Float32Array(TN*3),tc=new Float32Array(TN*3),tv=new Float32Array(TN*3),ta=new Float32Array(TN),V2=new THREE.Vector3();let th=0;
 const tg=new THREE.BufferGeometry();tg.setAttribute('position',new THREE.BufferAttribute(tp,3));tg.setAttribute('color',new THREE.BufferAttribute(tc,3));
 const trail=new THREE.Points(tg,new THREE.PointsMaterial({map:glowTex('rgba(255,255,255,1)','rgba(255,160,90,.3)'),vertexColors:true,size:.55,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,fog:false}));trail.frustumCulled=false;scene.add(trail);
+// warp streaks (fade in with scroll speed) and a warm sun glow
+const WN=Math.floor(160*q)+30,wp=new Float32Array(WN*6);for(let i=0;i<WN;i++){const a=R()*6.283,rd=rr(2.5,11),x=Math.cos(a)*rd,y=Math.sin(a)*rd*.6,z=rr(-310,10);wp.set([x,y,z,x,y,z-rr(2,5)],i*6)}
+const wg=new THREE.BufferGeometry();wg.setAttribute('position',new THREE.BufferAttribute(wp,3));const wl=new THREE.LineSegments(wg,new THREE.LineBasicMaterial({color:0xcdb8ff,transparent:true,opacity:0,blending:THREE.AdditiveBlending,depthWrite:false,fog:false}));wl.frustumCulled=false;scene.add(wl);
+{const sg=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex('rgba(255,235,200,.95)','rgba(255,138,61,.22)'),fog:false,depthWrite:false,blending:THREE.AdditiveBlending,opacity:.7}));sg.scale.setScalar(110);sg.position.set(-75,48,-150);scene.add(sg)}
+// meteors
+const MN=5,mp=new Float32Array(MN*6),mcl=new Float32Array(MN*6),mt=Array.from({length:MN},()=>({l:0,w:rr(1,6),p:[0,0,0],v:[0,0,0]}));
+const mg=new THREE.BufferGeometry();mg.setAttribute('position',new THREE.BufferAttribute(mp,3));mg.setAttribute('color',new THREE.BufferAttribute(mcl,3));
+const mlines=new THREE.LineSegments(mg,new THREE.LineBasicMaterial({vertexColors:true,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,fog:false}));mlines.frustumCulled=false;scene.add(mlines);
 // ---------- keyframes ----------
 const Z=[-140,-170,-200,-230,-262];
 const K=[
@@ -367,7 +396,10 @@ function frame(now){
  frags.rotation.y=reduce?0:t*.01;holo.rotation.set(t*.7,t*.4,0);holo2.rotation.y=t;
  ring.rotation.z=t*.01;planet.rotation.y=t*.006;
  scene.fog.density=.012+(1-intro.v)*.035;crys.material.emissiveIntensity=.7+.6*sp+.12*Math.sin(t*1.5);
- veil.style.opacity=Math.max(0,1-intro.v*1.4);
+ if(!reduce){mt.forEach((m,mi)=>{let al=0;if(m.l<=0){m.w-=dt;if(m.w<=0){m.l=1;m.w=rr(2,7);const dr=R()<.5?-1:1;m.p=[cam.position.x+rr(-25,25),cam.position.y+rr(6,18),cam.position.z-rr(40,90)];m.v=[dr*rr(14,26),-rr(6,12),0]}}else{m.l-=dt*.9;for(let k=0;k<3;k++)m.p[k]+=m.v[k]*dt;al=Math.sin(Math.max(0,m.l)*Math.PI)}
+ for(let k=0;k<3;k++){mp[mi*6+k]=m.p[k];mp[mi*6+3+k]=m.p[k]-m.v[k]*.16}
+ mcl[mi*6]=al;mcl[mi*6+1]=al*.8;mcl[mi*6+2]=al*.62;mcl[mi*6+3]=mcl[mi*6+4]=mcl[mi*6+5]=0});mg.attributes.position.needsUpdate=true;mg.attributes.color.needsUpdate=true}
+ starMat.opacity=.8+.1*Math.sin(t*1.7);wl.material.opacity=reduce?0:Math.min(.5,sp*.8)*(1-f*.5);veil.style.opacity=Math.max(0,1-intro.v*1.4);
  flash.style.opacity=(f>0&&f<1)?Math.sin(f*Math.PI)*.9:0;
  renderer.render(scene,cam);
 }
@@ -377,7 +409,7 @@ addEventListener('resize',()=>{renderer.setPixelRatio(dpr());renderer.setSize(in
 addEventListener('pagehide',()=>{renderer.setAnimationLoop(null);disposables.forEach(d=>d.dispose());scene.traverse(o=>{o.geometry&&o.geometry.dispose();const m=o.material;m&&(Array.isArray(m)?m:[m]).forEach(x=>{x.map&&x.map.dispose();x.dispose()})});renderer.dispose()});
 $('#qbtn').onclick=e=>{auto=false;lowQ=!lowQ;e.target.textContent='QUALITY: '+(lowQ?'LOW':'HIGH');e.target.setAttribute('aria-pressed',lowQ);renderer.setPixelRatio(dpr())};
 frame(performance.now());step('Revealing the capsule');start();
-setTimeout(()=>{endLoader();if(hasG&&!reduce){gsap.to(intro,{v:1,duration:3.4,ease:'power2.out'});gsap.from('.hero .r',{y:30,opacity:0,stagger:.35,duration:1.3,delay:1.4,ease:'power3.out'})}},350);
+setTimeout(()=>{endLoader();if(hasG&&!reduce){gsap.to(intro,{v:1,duration:3.4,ease:'power2.out'});gsap.from('.hero .r',{y:30,opacity:0,filter:'blur(12px)',clearProps:'filter',stagger:.35,duration:1.3,delay:1.4,ease:'power3.out'})}},350);
 })();
 </script>
 </body>
